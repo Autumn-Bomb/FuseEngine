@@ -21,10 +21,6 @@ namespace FuseEngine
 			uint32_t GetRenderTexture() { return m_Texture; }
 
 		private:
-			void CheckShaderCompilation(GLuint shader);
-			void CheckShaderLink(GLuint shaderProgram);
-
-		private:
 			uint32_t m_VBO;
 			uint32_t m_VAO;
 			uint32_t m_FBO;

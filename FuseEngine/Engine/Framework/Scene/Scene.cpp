@@ -20,15 +20,10 @@ void FuseEngine::Scene::SetupShaders()
 	glShaderSource(m_FragmentShader, 1, &m_FragmentShaderSource, NULL);
 	glCompileShader(m_FragmentShader);
 
-	CheckShaderCompilation(m_VertexShader);
-	CheckShaderCompilation(m_FragmentShader);
-
 	m_ShaderProgram = glCreateProgram();
 	glAttachShader(m_ShaderProgram, m_VertexShader);
 	glAttachShader(m_ShaderProgram, m_FragmentShader);
 	glLinkProgram(m_ShaderProgram);
-
-	CheckShaderLink(m_ShaderProgram);
 
 	glUseProgram(m_ShaderProgram);
 
@@ -51,9 +46,6 @@ void FuseEngine::Scene::BindShaders()
 
 void FuseEngine::Scene::SetupFBO()
 {
-	glGenFramebuffers(1, &m_FBO);
-	glBindFramebuffer(GL_FRAMEBUFFER, m_FBO);
-
 	glGenFramebuffers(1, &m_FBO);
 	glBindFramebuffer(GL_FRAMEBUFFER, m_FBO);
 
@@ -91,7 +83,6 @@ void FuseEngine::Scene::SetupFBO()
 	glUseProgram(m_ShaderProgram);
 	glBindVertexArray(m_VAO);
 	glBindTexture(GL_TEXTURE_2D, m_Texture);
-	glDrawArrays(GL_TRIANGLES, 0, 6);
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glDeleteFramebuffers(1, &m_FBO);
@@ -105,30 +96,4 @@ void FuseEngine::Scene::ProcessInput()
 void FuseEngine::Scene::Render()
 {
 	glDrawArrays(GL_TRIANGLES, 0, 3);
-}
-
-void FuseEngine::Scene::CheckShaderCompilation(GLuint shader)
-{
-	int success;
-	char infoLog[512];
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-
-	if (!success)
-	{
-		glGetShaderInfoLog(shader, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::" << shader << "::COMPILATION_FAILED\n" << infoLog << std::endl;
-	}
-}
-
-void FuseEngine::Scene::CheckShaderLink(GLuint shaderProgram)
-{
-	int success;
-	char infoLog[512];
-	glGetProgramiv(shaderProgram, GL_COMPILE_STATUS, &success);
-
-	if (!success)
-	{
-		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::" << shaderProgram << "::COMPILATION_FAILED\n" << infoLog << std::endl;
-	}
 }

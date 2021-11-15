@@ -25,28 +25,30 @@
     <ClCompile Include="ImGui\imgui_impl_opengl3.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Editor\Editor.cpp">
+    <ClCompile Include="Engine\Editor\EditorWindow\Editor.cpp">
       <Filter>src\Editor\Editor</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Window\Window.cpp">
+    <ClCompile Include="Engine\Editor\Window\Window.cpp">
       <Filter>src\Editor\Window</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Main.cpp">
+    <ClCompile Include="Engine\Main\Main.cpp">
       <Filter>src\Editor</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Panels\Stats\Stats.cpp">
+    <ClCompile Include="Engine\Editor\Panels\Stats\Stats.cpp">
       <Filter>src\Editor\Panels\Stats</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Framework\Panels\PanelManager\PanelManager.cpp">
       <Filter>src\Framework\Panels\PanelManager</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Panels\SceneViewport\SceneViewport.cpp">
+    <ClCompile Include="Engine\Editor\Panels\SceneViewport\SceneViewport.cpp">
       <Filter>src\Editor\Panels\SceneViewport</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Framework\Scene\Scene.cpp">
       <Filter>src\Framework\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Framework\ShaderProgram\ShaderProgram.cpp" />
+    <ClCompile Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.cpp" />
+    <ClCompile Include="Engine\Editor\Panels\GameViewport\GameViewport.cpp" />
+    <ClCompile Include="Engine\Editor\Panels\MenuBar\Menubar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -76,13 +78,13 @@
     <ClInclude Include="ImGui\imgui_impl_opengl3_loader.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Editor\Editor.h">
+    <ClInclude Include="Engine\Editor\EditorWindow\Editor.h">
       <Filter>src\Editor\Editor</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Window\Window.h">
+    <ClInclude Include="Engine\Editor\Window\Window.h">
       <Filter>src\Editor\Window</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Panels\Stats\Stats.h">
+    <ClInclude Include="Engine\Editor\Panels\Stats\Stats.h">
       <Filter>src\Editor\Panels\Stats</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Framework\Panels\BasePanel\BasePanel.h">
@@ -91,13 +93,15 @@
     <ClInclude Include="Engine\Framework\Panels\PanelManager\PanelManager.h">
       <Filter>src\Framework\Panels\PanelManager</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Panels\SceneViewport\SceneViewport.h">
+    <ClInclude Include="Engine\Editor\Panels\SceneViewport\SceneViewport.h">
       <Filter>src\Editor\Panels\SceneViewport</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Framework\Scene\Scene.h">
       <Filter>src\Framework\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Framework\ShaderProgram\ShaderProgram.h" />
+    <ClInclude Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.h" />
+    <ClInclude Include="Engine\Editor\Panels\GameViewport\GameViewport.h" />
+    <ClInclude Include="Engine\Editor\Panels\MenuBar\Menubar.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">
@@ -147,9 +151,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Engine\Framework\Shaders\Basic\VertexShader.glsl">
+    <None Include="Engine\Framework\Graphics\Shaders\Basic\VertexShader.glsl">
       <Filter>src\Framework\Shaders</Filter>
     </None>
-    <None Include="Engine\Framework\Shaders\Basic\FragmentShader.glsl" />
+    <None Include="Engine\Framework\Graphics\Shaders\Basic\FragmentShader.glsl">
+      <Filter>src\Framework\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
