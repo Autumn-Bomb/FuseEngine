@@ -145,6 +145,7 @@
     <ClCompile Include="Engine\Editor\Editor.cpp" />
     <ClCompile Include="Engine\Framework\Panels\PanelManager\PanelManager.cpp" />
     <ClCompile Include="Engine\Framework\Scene\Scene.cpp" />
+    <ClCompile Include="Engine\Framework\ShaderProgram\ShaderProgram.cpp" />
     <ClCompile Include="Engine\Main.cpp" />
     <ClCompile Include="Engine\Panels\SceneViewport\SceneViewport.cpp" />
     <ClCompile Include="Engine\Panels\Stats\Stats.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Engine\Framework\Panels\BasePanel\BasePanel.h" />
     <ClInclude Include="Engine\Framework\Panels\PanelManager\PanelManager.h" />
     <ClInclude Include="Engine\Framework\Scene\Scene.h" />
+    <ClInclude Include="Engine\Framework\ShaderProgram\ShaderProgram.h" />
     <ClInclude Include="Engine\Panels\SceneViewport\SceneViewport.h" />
     <ClInclude Include="Engine\Panels\Stats\Stats.h" />
     <ClInclude Include="Engine\Window\Window.h" />
@@ -175,6 +177,10 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Engine\Framework\Shaders\Basic\FragmentShader.glsl" />
+    <None Include="Engine\Framework\Shaders\Basic\VertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

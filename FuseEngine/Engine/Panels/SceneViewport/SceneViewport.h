@@ -12,6 +12,11 @@ namespace FuseEngine
 
 		public:
 			void OnImGuiRender() override;
-			void RenderScene(FuseEngine::Scene scene);
+
+		public:
+			void SetActiveScene(FuseEngine::Scene& scene) { m_Scene = scene; }
+
+		private:
+			FuseEngine::Scene m_Scene;
 	};
 }

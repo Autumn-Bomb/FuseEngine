@@ -1,6 +1,20 @@
 ﻿  Editor.cpp
+  PanelManager.cpp
   Scene.cpp
+  ShaderProgram.cpp
   Main.cpp
+  SceneViewport.cpp
+E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Panels\SceneViewport\SceneViewport.cpp(12,48): warning C4312: 'type cast': conversion from 'uint32_t' to 'void *' of greater size
+  Stats.cpp
   Window.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
   Generating Code...
-  FuseEngine.vcxproj -> C:\Users\Daniel\Desktop\FuseEngine\x64\Debug\FuseEngine.exe
+  glad.c
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  FuseEngine.vcxproj -> E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\x64\Debug\FuseEngine.exe

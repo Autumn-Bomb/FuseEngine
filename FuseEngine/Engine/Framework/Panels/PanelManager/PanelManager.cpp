@@ -8,12 +8,6 @@ void FuseEngine::PanelManager::AddPanel(const char* name, FuseEngine::BasePanel*
 	m_Panels[name] = panel; 
 }
 
-void FuseEngine::PanelManager::CreatePanels()
-{
-	AddPanel("Stats", &m_Stats);
-	AddPanel("Scene View", &m_SceneView);
-}
-
 void FuseEngine::PanelManager::RenderActivePanels()
 {
 	for (auto panel : m_Panels)

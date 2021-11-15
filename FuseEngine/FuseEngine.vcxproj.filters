@@ -46,6 +46,7 @@
     <ClCompile Include="Engine\Framework\Scene\Scene.cpp">
       <Filter>src\Framework\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Framework\ShaderProgram\ShaderProgram.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -96,6 +97,7 @@
     <ClInclude Include="Engine\Framework\Scene\Scene.h">
       <Filter>src\Framework\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Framework\ShaderProgram\ShaderProgram.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">
@@ -140,5 +142,14 @@
     <Filter Include="src\Framework\Scene">
       <UniqueIdentifier>{cdf15cb6-3add-407b-a065-15a2e7465e98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Framework\Shaders">
+      <UniqueIdentifier>{c4e75556-a042-41e5-b2d1-971c7e40b656}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Engine\Framework\Shaders\Basic\VertexShader.glsl">
+      <Filter>src\Framework\Shaders</Filter>
+    </None>
+    <None Include="Engine\Framework\Shaders\Basic\FragmentShader.glsl" />
   </ItemGroup>
 </Project>

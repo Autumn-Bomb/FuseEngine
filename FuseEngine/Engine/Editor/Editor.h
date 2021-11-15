@@ -15,6 +15,7 @@ namespace FuseEngine
 
 		public:
 			void RenderEditor();
+
 			void RenderActivePanels();
 			void HandlePanelDocking();
 
@@ -25,6 +26,10 @@ namespace FuseEngine
 
 		private:
 			ImGuiID m_DockSpaceID = 0;
+
+		private:
+			FuseEngine::Stats m_Stats;
+			FuseEngine::SceneViewport m_SceneView;
 
 		private:
 			FuseEngine::Scene m_Scene;

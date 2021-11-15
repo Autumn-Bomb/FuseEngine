@@ -13,6 +13,8 @@ void FuseEngine::Window::SetupWindow()
 	CreateWindow();
 	InitialiseGLAD();
 	InitialiseImGui();
+
+	m_Editor->SetupScene();
 }
 
 void FuseEngine::Window::InitialiseOpenGL()
@@ -95,15 +97,13 @@ void FuseEngine::Window::MainWindowLoop()
 void FuseEngine::Window::Render()
 {
 	// Clear the screen with the colour grey
-	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
 
 	// Create a new frame for ImGui
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
 	ImGui::NewFrame();
 
-	// Render the Editor 
+	// Render the Editor
 	m_Editor->RenderEditor();
 
 	// Render ImGui

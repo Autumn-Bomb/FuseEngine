@@ -2,7 +2,8 @@
 
 FuseEngine::Editor::Editor()
 {
-	m_PanelManager.CreatePanels();
+	m_PanelManager.AddPanel("Stats", &m_Stats);
+	m_PanelManager.AddPanel("Scene View", &m_SceneView);
 }
 FuseEngine::Editor::~Editor() {}
 
@@ -17,6 +18,9 @@ void FuseEngine::Editor::SetupScene()
 {
 	m_Scene.SetupShaders();
 	m_Scene.BindShaders();
+	m_Scene.SetupFBO();
+
+	m_SceneView.SetActiveScene(m_Scene);
 }
 
 void FuseEngine::Editor::RenderEditor()

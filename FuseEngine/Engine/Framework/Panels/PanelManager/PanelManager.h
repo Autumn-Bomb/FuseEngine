@@ -15,7 +15,6 @@ namespace FuseEngine
 			~PanelManager();
 
 		public:
-			void CreatePanels();
 			void RenderActivePanels();
 
 		public:
@@ -31,10 +30,6 @@ namespace FuseEngine
 				else
 					return nullptr;
 			}
-
-		private:
-			FuseEngine::Stats m_Stats;
-			FuseEngine::SceneViewport m_SceneView;
 
 		private:
 			std::unordered_map<std::string, FuseEngine::BasePanel*> m_Panels;
