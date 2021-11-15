@@ -1,4 +1,5 @@
-#include "Window/Window.h"
+#include "../Editor/EditorWindow/Editor.h"
+#include "../Editor/Window/Window.h"
 
 int main()
 {

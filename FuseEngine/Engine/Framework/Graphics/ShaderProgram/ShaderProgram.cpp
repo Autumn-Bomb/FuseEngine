@@ -15,8 +15,8 @@ void FuseEngine::ShaderProgram::LinkShaders(const char* vertexShaderPath, const 
 	std::string m_VertexCode;
 	std::string m_FragmentCode;
 
-	std::ofstream vertexShaderFile;
-	std::ofstream fragmentShaderFile;
+	std::ifstream vertexShaderFile;
+	std::ifstream fragmentShaderFile;
 
 	try
 	{
@@ -33,6 +33,9 @@ void FuseEngine::ShaderProgram::LinkShaders(const char* vertexShaderPath, const 
 
 		m_VertexCode = vertexShaderStream.str();
 		m_FragmentCode = fragmentShaderStream.str();
+
+		std::cout << "Vertex Shader Code: " << m_VertexCode;
+		std::cout << "Fragment Shader Code: " << m_FragmentCode;
 	}
 	catch (std::ofstream::failure e)
 	{

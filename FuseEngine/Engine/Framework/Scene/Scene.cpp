@@ -4,31 +4,13 @@ FuseEngine::Scene::Scene()
 {
 	m_VAO = 0;
 	m_VBO = 0;
-	m_ShaderProgram = 0;
-	m_VertexShader = 0;
-	m_FragmentShader = 0;
 }
 FuseEngine::Scene::~Scene() {}
 
 void FuseEngine::Scene::SetupShaders()
 {
-	m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(m_VertexShader, 1, &m_VertexShaderSource, NULL);
-	glCompileShader(m_VertexShader);
-
-	m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(m_FragmentShader, 1, &m_FragmentShaderSource, NULL);
-	glCompileShader(m_FragmentShader);
-
-	m_ShaderProgram = glCreateProgram();
-	glAttachShader(m_ShaderProgram, m_VertexShader);
-	glAttachShader(m_ShaderProgram, m_FragmentShader);
-	glLinkProgram(m_ShaderProgram);
-
-	glUseProgram(m_ShaderProgram);
-
-	glDeleteShader(m_VertexShader);
-	glDeleteShader(m_FragmentShader);
+	m_ShaderProgram.LinkShaders("/Engine/Framework/Graphics/Shaders/Basic/VertexShader.glsl", "/Engine/Framework/Graphics/Shaders/Basic/FragmentShader.glsl");
+	m_ShaderProgram.CreateShaders();
 }
 
 void FuseEngine::Scene::BindShaders()
@@ -80,7 +62,7 @@ void FuseEngine::Scene::SetupFBO()
 	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	glUseProgram(m_ShaderProgram);
+	m_ShaderProgram.Use();
 	glBindVertexArray(m_VAO);
 	glBindTexture(GL_TEXTURE_2D, m_Texture);
 
