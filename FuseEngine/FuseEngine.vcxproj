@@ -142,9 +142,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Editor\Editor\Editor.cpp" />
-    <ClCompile Include="Editor\Main.cpp" />
-    <ClCompile Include="Editor\Window\Window.cpp" />
+    <ClCompile Include="Engine\Editor\Editor.cpp" />
+    <ClCompile Include="Engine\Framework\Panels\PanelManager\PanelManager.cpp" />
+    <ClCompile Include="Engine\Main.cpp" />
+    <ClCompile Include="Engine\Panels\SceneViewport\SceneViewport.cpp" />
+    <ClCompile Include="Engine\Panels\Stats\Stats.cpp" />
+    <ClCompile Include="Engine\Window\Window.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -155,8 +158,12 @@
     <ClCompile Include="Includes\Include\GLAD\glad.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Editor\Editor\Editor.h" />
-    <ClInclude Include="Editor\Window\Window.h" />
+    <ClInclude Include="Engine\Editor\Editor.h" />
+    <ClInclude Include="Engine\Framework\Panels\BasePanel\BasePanel.h" />
+    <ClInclude Include="Engine\Framework\Panels\PanelManager\PanelManager.h" />
+    <ClInclude Include="Engine\Panels\SceneViewport\SceneViewport.h" />
+    <ClInclude Include="Engine\Panels\Stats\Stats.h" />
+    <ClInclude Include="Engine\Window\Window.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_glfw.h" />
