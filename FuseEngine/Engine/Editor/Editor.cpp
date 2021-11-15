@@ -13,6 +13,12 @@ void FuseEngine::Editor::ProcessInput(GLFWwindow* window)
 	}*/
 }
 
+void FuseEngine::Editor::SetupScene()
+{
+	m_Scene.SetupShaders();
+	m_Scene.BindShaders();
+}
+
 void FuseEngine::Editor::RenderEditor()
 {
 	ImGui::Begin("Editor", 0, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoTitleBar);

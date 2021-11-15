@@ -11,3 +11,8 @@ void FuseEngine::SceneViewport::OnImGuiRender()
 
 	ImGui::End();
 }
+
+void FuseEngine::SceneViewport::RenderScene(FuseEngine::Scene scene)
+{
+
+}

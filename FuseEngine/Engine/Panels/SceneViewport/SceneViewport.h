@@ -1,5 +1,6 @@
 #pragma once
 #include "../../Framework/Panels/BasePanel/BasePanel.h"
+#include "../../Framework/Scene/Scene.h"
 
 namespace FuseEngine
 {
@@ -11,8 +12,6 @@ namespace FuseEngine
 
 		public:
 			void OnImGuiRender() override;
-
-		private:
-
+			void RenderScene(FuseEngine::Scene scene);
 	};
 }

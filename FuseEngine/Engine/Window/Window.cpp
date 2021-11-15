@@ -105,7 +105,7 @@ void FuseEngine::Window::Render()
 
 	// Render the Editor 
 	m_Editor->RenderEditor();
-	
+
 	// Render ImGui
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

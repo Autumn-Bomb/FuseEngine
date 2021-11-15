@@ -26,22 +26,25 @@
       <Filter>ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Editor\Editor.cpp">
-      <Filter>Source\Editor\Editor</Filter>
+      <Filter>src\Editor\Editor</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Window\Window.cpp">
-      <Filter>Source\Editor\Window</Filter>
+      <Filter>src\Editor\Window</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Main.cpp">
-      <Filter>Source\Editor</Filter>
+      <Filter>src\Editor</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Panels\Stats\Stats.cpp">
-      <Filter>Source\Editor\Panels\Stats</Filter>
+      <Filter>src\Editor\Panels\Stats</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Framework\Panels\PanelManager\PanelManager.cpp">
-      <Filter>Source\Framework\Panels\PanelManager</Filter>
+      <Filter>src\Framework\Panels\PanelManager</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Panels\SceneViewport\SceneViewport.cpp">
-      <Filter>Source\Editor\Panels\SceneViewport</Filter>
+      <Filter>src\Editor\Panels\SceneViewport</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Framework\Scene\Scene.cpp">
+      <Filter>src\Framework\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,22 +76,25 @@
       <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Editor\Editor.h">
-      <Filter>Source\Editor\Editor</Filter>
+      <Filter>src\Editor\Editor</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Window\Window.h">
-      <Filter>Source\Editor\Window</Filter>
+      <Filter>src\Editor\Window</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Panels\Stats\Stats.h">
-      <Filter>Source\Editor\Panels\Stats</Filter>
+      <Filter>src\Editor\Panels\Stats</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Framework\Panels\BasePanel\BasePanel.h">
-      <Filter>Source\Framework\Panels\BasePanel</Filter>
+      <Filter>src\Framework\Panels\BasePanel</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Framework\Panels\PanelManager\PanelManager.h">
-      <Filter>Source\Framework\Panels\PanelManager</Filter>
+      <Filter>src\Framework\Panels\PanelManager</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Panels\SceneViewport\SceneViewport.h">
-      <Filter>Source\Editor\Panels\SceneViewport</Filter>
+      <Filter>src\Editor\Panels\SceneViewport</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Framework\Scene\Scene.h">
+      <Filter>src\Framework\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -98,38 +104,41 @@
     <Filter Include="GLAD">
       <UniqueIdentifier>{1223c37e-cfdd-47f0-be05-2f09a3176e6f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source">
+    <Filter Include="src">
       <UniqueIdentifier>{fc356de0-5151-4017-8287-19e84df2ea89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Editor">
+    <Filter Include="src\Editor">
       <UniqueIdentifier>{73292be1-b8b3-49ce-bbc3-861b99dfd7e7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Editor\Window">
+    <Filter Include="src\Editor\Window">
       <UniqueIdentifier>{d281ac9b-fddf-4e8a-910f-3683f44b67b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Editor\Editor">
+    <Filter Include="src\Editor\Editor">
       <UniqueIdentifier>{7338ee2b-b554-44e7-8b90-bb958c0f941c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Editor\Panels">
+    <Filter Include="src\Editor\Panels">
       <UniqueIdentifier>{bc3f178f-38f4-4005-a741-93d09fda12ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Editor\Panels\Stats">
+    <Filter Include="src\Editor\Panels\Stats">
       <UniqueIdentifier>{45c41fd0-ff30-4ffb-bc0e-fdb2dcf06c9e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Framework">
+    <Filter Include="src\Editor\Panels\SceneViewport">
+      <UniqueIdentifier>{4936abb3-4d0d-4548-a84d-4a2cf1dd1b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Framework">
       <UniqueIdentifier>{96ca6046-c4ae-4643-92da-625aaaeea610}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Framework\Panels">
+    <Filter Include="src\Framework\Panels">
       <UniqueIdentifier>{48fbdd89-6c49-43eb-b603-553e301b4bcb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Framework\Panels\BasePanel">
+    <Filter Include="src\Framework\Panels\BasePanel">
       <UniqueIdentifier>{05c21ba8-f220-4642-90f0-5a031a06f7f4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Framework\Panels\PanelManager">
+    <Filter Include="src\Framework\Panels\PanelManager">
       <UniqueIdentifier>{22f4cb3b-c089-4c0e-95d2-e7eb8c36f7fb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Editor\Panels\SceneViewport">
-      <UniqueIdentifier>{4936abb3-4d0d-4548-a84d-4a2cf1dd1b30}</UniqueIdentifier>
+    <Filter Include="src\Framework\Scene">
+      <UniqueIdentifier>{cdf15cb6-3add-407b-a065-15a2e7465e98}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
