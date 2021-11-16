@@ -9,7 +9,7 @@ FuseEngine::Scene::~Scene() {}
 
 void FuseEngine::Scene::SetupShaders()
 {
-	m_ShaderProgram.LinkShaders("/Engine/Framework/Graphics/Shaders/Basic/VertexShader.glsl", "/Engine/Framework/Graphics/Shaders/Basic/FragmentShader.glsl");
+	m_ShaderProgram.LinkShaders("Engine/Framework/Graphics/Shaders/Basic/VertexShader.glsl", "Engine/Framework/Graphics/Shaders/Basic/FragmentShader.glsl");
 	m_ShaderProgram.CreateShaders();
 }
 

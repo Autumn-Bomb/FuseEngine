@@ -34,8 +34,8 @@ void FuseEngine::ShaderProgram::LinkShaders(const char* vertexShaderPath, const 
 		m_VertexCode = vertexShaderStream.str();
 		m_FragmentCode = fragmentShaderStream.str();
 
-		std::cout << "Vertex Shader Code: " << m_VertexCode;
-		std::cout << "Fragment Shader Code: " << m_FragmentCode;
+		std::cout << "Vertex Shader Code: \n" << m_VertexCode << std::endl;
+		std::cout << "Fragment Shader Code: \n" << m_FragmentCode << std::endl;
 	}
 	catch (std::ofstream::failure e)
 	{
@@ -73,6 +73,32 @@ void FuseEngine::ShaderProgram::Use()
 	glUseProgram(m_ShaderProgramID);
 }
 
+void FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader)
+{
+	int success;
+	char infoLog[512];
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+
+	if (!success)
+	{
+		glGetShaderInfoLog(shader, 512, NULL, infoLog);
+		std::cout << "ERROR::SHADER::COMPILATION_FAILED - " << infoLog << std::endl;
+	}
+}
+
+void FuseEngine::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
+{
+	int success;
+	char infoLog[512];
+	glGetProgramiv(shaderProgram, GL_COMPILE_STATUS, &success);
+
+	if (!success)
+	{
+		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+		std::cout << "ERROR::SHADER::COMPILATION_FAILED - " << infoLog << std::endl;
+	}
+}
+
 void FuseEngine::ShaderProgram::SetBool(const std::string& name, bool value)
 {
 	glUniform1i(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
@@ -86,30 +112,4 @@ void FuseEngine::ShaderProgram::SetInt(const std::string& name, int value)
 void FuseEngine::ShaderProgram::SetFloat(const std::string& name, float value)
 {
 	glUniform1f(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
-}
-
-void FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader)
-{
-	int success;
-	char infoLog[512];
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-
-	if (!success)
-	{
-		glGetShaderInfoLog(shader, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::" << shader << "::COMPILATION_FAILED\n" << infoLog << std::endl;
-	}
-}
-
-void FuseEngine::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
-{
-	int success;
-	char infoLog[512];
-	glGetProgramiv(shaderProgram, GL_COMPILE_STATUS, &success);
-
-	if (!success)
-	{
-		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::" << shaderProgram << "::COMPILATION_FAILED\n" << infoLog << std::endl;
-	}
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "../Graphics/ShaderProgram/ShaderProgram.h"
 #include "glad.h"
+
 #include <iostream>
 
 namespace FuseEngine
@@ -31,6 +32,7 @@ namespace FuseEngine
 
 		private:
 			FuseEngine::ShaderProgram m_ShaderProgram;
+
 			float m_Vertices[9] =
 			{
 				-0.5f, -0.5f, 0.0f,
