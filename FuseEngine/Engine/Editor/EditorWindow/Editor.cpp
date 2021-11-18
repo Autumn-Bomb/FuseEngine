@@ -15,16 +15,18 @@ void FuseEngine::Editor::ProcessInput(GLFWwindow* window)
 
 void FuseEngine::Editor::SetupScene()
 {
+	m_Scene.SetupShaders();
 	m_Scene.BindShaders();
 	m_Scene.SetupFBO();
-	m_SceneRenderer.SetActiveScene(m_Scene);
+
+	m_SceneView.SetActiveScene(m_Scene);
+	m_GameView.SetActiveScene(m_Scene);
 }
 
 void FuseEngine::Editor::RenderEditor()
 {
 	ImGui::Begin("Editor", 0, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoTitleBar);
-	ImGui::GetStyle().WindowMenuButtonPosition = ImGuiDir_None;
-
+	
 	ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
 
 	ImVec2 vWindowSize = ImGui::GetMainViewport()->Size;

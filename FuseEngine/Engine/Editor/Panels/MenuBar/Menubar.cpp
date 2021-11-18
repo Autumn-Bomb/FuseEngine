@@ -19,14 +19,6 @@ void FuseEngine::Menubar::OnImGuiRender()
 		{
 			ImGui::EndMenu();
 		}
-		if (ImGui::BeginMenu("Window"))
-		{
-			ImGui::MenuItem("Scene Viewport");
-			ImGui::MenuItem("Game Viewport");
-			ImGui::MenuItem("Stats");
-
-			ImGui::EndMenu();
-		}
 
 		ImGui::EndMenuBar();
 	}

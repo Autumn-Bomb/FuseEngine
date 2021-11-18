@@ -49,7 +49,6 @@
     <ClCompile Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.cpp" />
     <ClCompile Include="Engine\Editor\Panels\GameViewport\GameViewport.cpp" />
     <ClCompile Include="Engine\Editor\Panels\MenuBar\Menubar.cpp" />
-    <ClCompile Include="Engine\Framework\SceneRenderer\SceneRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -103,8 +102,6 @@
     <ClInclude Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.h" />
     <ClInclude Include="Engine\Editor\Panels\GameViewport\GameViewport.h" />
     <ClInclude Include="Engine\Editor\Panels\MenuBar\Menubar.h" />
-    <ClInclude Include="Engine\Framework\SceneRenderer\SceneRenderer.h" />
-    <ClInclude Include="Engine\Framework\Graphics\Framebuffer Object\FramebufferObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

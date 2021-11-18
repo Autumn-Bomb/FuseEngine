@@ -13,6 +13,7 @@ namespace FuseEngine
 			~Scene();
 
 		public:
+			void SetupShaders();
 			void BindShaders();
 			void SetupFBO();
 

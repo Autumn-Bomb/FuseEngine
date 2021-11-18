@@ -5,7 +5,7 @@ FuseEngine::SceneViewport::~SceneViewport() {}
 
 void FuseEngine::SceneViewport::OnImGuiRender()
 {
-	ImGui::Begin("Scene View", &GetActiveState(), ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar);
+	ImGui::Begin("Scene View", &GetActiveState(), ImGuiWindowFlags_NoCollapse);
 
 	// Render ImGui Texture here with FBO
 	ImVec2 vWindowSize = ImGui::GetWindowSize();
