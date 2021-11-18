@@ -7,14 +7,10 @@ FuseEngine::Scene::Scene()
 }
 FuseEngine::Scene::~Scene() {}
 
-void FuseEngine::Scene::SetupShaders()
-{
-	m_ShaderProgram.LinkShaders("Engine/Framework/Graphics/Shaders/Basic/VertexShader.glsl", "Engine/Framework/Graphics/Shaders/Basic/FragmentShader.glsl");
-	m_ShaderProgram.CreateShaders();
-}
-
 void FuseEngine::Scene::BindShaders()
 {
+	m_ShaderProgram.LoadShaders("Engine/Framework/Graphics/Shaders/Basic/VertexShader.glsl", "Engine/Framework/Graphics/Shaders/Basic/FragmentShader.glsl");
+	m_ShaderProgram.CreateShaders();
 	glGenVertexArrays(1, &m_VAO);
 	glGenBuffers(1, &m_VBO);
 

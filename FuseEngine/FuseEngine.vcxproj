@@ -145,6 +145,7 @@
     <ClCompile Include="Engine\Editor\EditorWindow\Editor.cpp" />
     <ClCompile Include="Engine\Editor\Panels\MenuBar\Menubar.cpp" />
     <ClCompile Include="Engine\Framework\Panels\PanelManager\PanelManager.cpp" />
+    <ClCompile Include="Engine\Framework\SceneRenderer\SceneRenderer.cpp" />
     <ClCompile Include="Engine\Framework\Scene\Scene.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.cpp" />
     <ClCompile Include="Engine\Main\Main.cpp" />
@@ -164,8 +165,10 @@
   <ItemGroup>
     <ClInclude Include="Engine\Editor\EditorWindow\Editor.h" />
     <ClInclude Include="Engine\Editor\Panels\MenuBar\Menubar.h" />
+    <ClInclude Include="Engine\Framework\Graphics\Framebuffer Object\FramebufferObject.h" />
     <ClInclude Include="Engine\Framework\Panels\BasePanel\BasePanel.h" />
     <ClInclude Include="Engine\Framework\Panels\PanelManager\PanelManager.h" />
+    <ClInclude Include="Engine\Framework\SceneRenderer\SceneRenderer.h" />
     <ClInclude Include="Engine\Framework\Scene\Scene.h" />
     <ClInclude Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.h" />
     <ClInclude Include="Engine\Editor\Panels\GameViewport\GameViewport.h" />

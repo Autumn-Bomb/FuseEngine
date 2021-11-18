@@ -2,7 +2,7 @@
 
 #include "../../Framework/Panels/PanelManager/PanelManager.h"
 #include "../Panels/MenuBar/Menubar.h"
-#include "../../Framework/Scene/Scene.h"
+#include "../../Framework/SceneRenderer/SceneRenderer.h"
 
 #include <glfw3.h>
 
@@ -29,6 +29,8 @@ namespace FuseEngine
 			ImGuiID m_DockSpaceID = 0;
 
 		private:
+			FuseEngine::SceneRenderer m_SceneRenderer;
+
 			FuseEngine::Menubar m_MenuBar;
 
 			FuseEngine::Stats m_Stats;

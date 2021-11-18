@@ -14,12 +14,12 @@ namespace FuseEngine
 			~ShaderProgram();
 
 		public:
-			void LinkShaders(const char* vertex, const char* fragment);
+			void LoadShaders(const char* vertex, const char* fragment);
 			void CreateShaders();
 			void Use();
 
 		public:
-			void CheckShaderCompilation(GLuint shader);
+			void CheckShaderCompilation(GLuint shader, const char* shaderName);
 			void CheckShaderLink(GLuint shaderProgram);
 
 		public:
@@ -30,10 +30,9 @@ namespace FuseEngine
 		private:
 			uint32_t m_VertexShader;
 			uint32_t m_FragmentShader;
+			uint32_t m_ShaderProgramID;
 
 			const char* m_VertexShaderCode;
 			const char* m_FragmentShaderCode;
-
-			uint32_t m_ShaderProgramID;
 	};
 }

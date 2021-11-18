@@ -1,8 +1,8 @@
-#version 330
+#version 460
 
 out vec4 FragColour;
 
 void main()
 {
-	FragColour = vec4(1.0, 1.0, 1.0, 1.0);
+	FragColour = vec4(0.0f, 0.0f, 0.0f, 1.0f);
 }
