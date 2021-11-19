@@ -19,6 +19,14 @@ void FuseEngine::Menubar::OnImGuiRender()
 		{
 			ImGui::EndMenu();
 		}
+		if (ImGui::BeginMenu("Panels"))
+		{
+			ImGui::MenuItem("Scene Hierarchy");
+			ImGui::MenuItem("Scene Viewport");
+			ImGui::MenuItem("Game Viewport");
+			ImGui::MenuItem("Profiler");
+			ImGui::EndMenu();
+		}
 
 		ImGui::EndMenuBar();
 	}

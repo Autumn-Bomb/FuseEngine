@@ -2,9 +2,10 @@
 
 FuseEngine::Editor::Editor()
 {
-	m_PanelManager.AddPanel("Stats", &m_Stats);
+	m_PanelManager.AddPanel("Stats", &m_Profiler);
 	m_PanelManager.AddPanel("Scene View", &m_SceneView);
 	m_PanelManager.AddPanel("Game View", &m_GameView);
+	m_PanelManager.AddPanel("Scene Hierarchy", &m_SceneHierarchy);
 }
 FuseEngine::Editor::~Editor() {}
 
@@ -31,14 +32,15 @@ void FuseEngine::Editor::RenderEditor()
 
 	ImVec2 vWindowSize = ImGui::GetMainViewport()->Size;
 	ImVec2 vPos0 = ImGui::GetMainViewport()->Pos;
+	ImGui::GetStyle().WindowMenuButtonPosition = ImGuiDir_None;
 
 	ImGui::SetWindowPos(ImVec2((float)vPos0.x, (float)vPos0.y), ImGuiCond_Always);
 	ImGui::SetWindowSize(ImVec2((float)vWindowSize.x, (float)vWindowSize.y), ImGuiCond_Always);
 
 	ImGui::PopStyleVar();
 
-	HandlePanelDocking();
 	m_MenuBar.OnImGuiRender();
+	HandlePanelDocking();
 	RenderActivePanels();
 
 	ImGui::End();

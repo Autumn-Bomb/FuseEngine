@@ -1,9 +1,10 @@
 #pragma once
 #include "../BasePanel/BasePanel.h"
 
-#include "../../../Editor/Panels/Stats/Stats.h"
+#include "../../../Editor/Panels/Profiler/Profiler.h"
 #include "../../../Editor/Panels/SceneViewport/SceneViewport.h"
 #include "../../../Editor/Panels/GameViewport/GameViewport.h"
+#include "../../../Editor/Panels/SceneHierarchy/SceneHierarchy.h"
 
 #include <unordered_map>
 

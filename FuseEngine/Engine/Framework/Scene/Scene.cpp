@@ -4,12 +4,14 @@ FuseEngine::Scene::Scene()
 {
 	m_VAO = 0;
 	m_VBO = 0;
+	m_FBO = 0;
+	m_RBO = 0;
 }
 FuseEngine::Scene::~Scene() {}
 
 void FuseEngine::Scene::SetupShaders()
 {
-	m_ShaderProgram.LinkShaders("Engine/Framework/Graphics/Shaders/Basic/VertexShader.glsl", "Engine/Framework/Graphics/Shaders/Basic/FragmentShader.glsl");
+	m_ShaderProgram.LoadShaders("Engine/Framework/Graphics/Shaders/Basic/VertexShader.glsl", "Engine/Framework/Graphics/Shaders/Basic/FragmentShader.glsl");
 	m_ShaderProgram.CreateShaders();
 }
 

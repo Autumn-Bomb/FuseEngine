@@ -10,7 +10,7 @@ FuseEngine::ShaderProgram::ShaderProgram()
 }
 FuseEngine::ShaderProgram::~ShaderProgram() {}
 
-void FuseEngine::ShaderProgram::LinkShaders(const char* vertexShaderPath, const char* fragmentShaderPath)
+void FuseEngine::ShaderProgram::LoadShaders(const char* vertexShaderPath, const char* fragmentShaderPath)
 {
 	std::string m_VertexCode;
 	std::string m_FragmentCode;
@@ -33,9 +33,6 @@ void FuseEngine::ShaderProgram::LinkShaders(const char* vertexShaderPath, const 
 
 		m_VertexCode = vertexShaderStream.str();
 		m_FragmentCode = fragmentShaderStream.str();
-
-		std::cout << "Vertex Shader Code: \n" << m_VertexCode << std::endl;
-		std::cout << "Fragment Shader Code: \n" << m_FragmentCode << std::endl;
 	}
 	catch (std::ofstream::failure e)
 	{
@@ -51,12 +48,12 @@ void FuseEngine::ShaderProgram::CreateShaders()
 	m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(m_VertexShader, 1, &m_VertexShaderCode, NULL);
 	glCompileShader(m_VertexShader);
-	CheckShaderCompilation(m_VertexShader);
+	CheckShaderCompilation(m_VertexShader, "VERTEX SHADER");
 
 	m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(m_FragmentShader, 1, &m_FragmentShaderCode, NULL);
 	glCompileShader(m_FragmentShader);
-	CheckShaderCompilation(m_FragmentShader);
+	CheckShaderCompilation(m_FragmentShader, "FRAGMENT SHADER");
 
 	m_ShaderProgramID = glCreateProgram();
 	glAttachShader(m_ShaderProgramID, m_VertexShader);
@@ -73,7 +70,7 @@ void FuseEngine::ShaderProgram::Use()
 	glUseProgram(m_ShaderProgramID);
 }
 
-void FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader)
+void FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shaderName)
 {
 	int success;
 	char infoLog[512];
@@ -82,7 +79,7 @@ void FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader)
 	if (!success)
 	{
 		glGetShaderInfoLog(shader, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::COMPILATION_FAILED - " << infoLog << std::endl;
+		std::cout << "ERROR::SHADER::COMPILATION_FAILED::" << shaderName << ": " << infoLog << std::endl;
 	}
 }
 

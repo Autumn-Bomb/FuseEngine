@@ -31,9 +31,10 @@ namespace FuseEngine
 		private:
 			FuseEngine::Menubar m_MenuBar;
 
-			FuseEngine::Stats m_Stats;
+			FuseEngine::Profiler m_Profiler;
 			FuseEngine::SceneViewport m_SceneView;
 			FuseEngine::GameViewport m_GameView;
+			FuseEngine::SceneHierarchy m_SceneHierarchy;
 
 		private:
 			FuseEngine::Scene m_Scene;
