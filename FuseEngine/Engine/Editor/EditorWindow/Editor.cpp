@@ -2,6 +2,10 @@
 
 FuseEngine::Editor::Editor()
 {
+	m_FPS = 0;
+	m_FrameTime = 0;
+	m_LastTime = 0;
+
 	m_PanelManager.AddPanel("Stats", &m_Profiler);
 	m_PanelManager.AddPanel("Scene View", &m_SceneView);
 	m_PanelManager.AddPanel("Game View", &m_GameView);
@@ -55,4 +59,22 @@ void FuseEngine::Editor::HandlePanelDocking()
 {
 	m_DockSpaceID = ImGui::GetID("MainDockSpace");
 	ImGui::DockSpace(m_DockSpaceID, ImVec2(0.f, 0.f), ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode);
+}
+
+void FuseEngine::Editor::CalculateFPSFrametime()
+{
+	double currentTime = glfwGetTime();
+	m_FPS++;
+
+	if (currentTime - m_LastTime >= 1.0)
+	{
+		m_Profiler.SetFPS(m_FPS);
+
+		m_FrameTime = 0.1f / m_FPS;
+		m_Profiler.SetFrametime(m_FrameTime);
+
+		m_FPS = 0;
+		m_FrameTime = 0;
+		m_LastTime = currentTime;
+	}
 }

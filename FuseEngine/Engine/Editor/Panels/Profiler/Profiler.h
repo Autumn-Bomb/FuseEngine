@@ -16,13 +16,17 @@ namespace FuseEngine
 			void OnImGuiRender() override;
 			void PrintStatsToConsole();
 
+		public:
+			void SetFPS(int fps) { m_FPS = fps; }
+			void SetFrametime(double frameTime) { m_Frametime = frameTime; }
+		
 		private:
 			bool statsPrinted = false;
 			const GLubyte* m_Vendor;
 			const GLubyte* m_Renderer;
 			const GLubyte* m_OpenGlVersion;
 
-			float m_FPS;
-			float m_Frametime;
+			int m_FPS;
+			double m_Frametime;
 	};
 }

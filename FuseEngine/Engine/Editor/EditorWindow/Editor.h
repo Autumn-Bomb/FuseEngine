@@ -24,6 +24,8 @@ namespace FuseEngine
 
 		public:
 			void ProcessInput(GLFWwindow* window);
+			void CalculateFPSFrametime();
+			void ResetLastTime() { m_FPS = 0; m_LastTime = glfwGetTime(); }
 
 		private:
 			ImGuiID m_DockSpaceID = 0;
@@ -39,5 +41,10 @@ namespace FuseEngine
 		private:
 			FuseEngine::Scene m_Scene;
 			FuseEngine::PanelManager m_PanelManager;
+
+		private:
+			double m_LastTime;
+			double m_FrameTime;
+			int m_FPS;
 	};
 }

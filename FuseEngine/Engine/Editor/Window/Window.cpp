@@ -73,10 +73,12 @@ void FuseEngine::Window::MainWindowLoop()
 {
 	while (!glfwWindowShouldClose(m_Window))
 	{
+		m_Editor->CalculateFPSFrametime();
+
 		// Input
 		ProcessInput();
 		m_Editor->ProcessInput(m_Window);
-
+		
 		// Rendering
 		Render();
 

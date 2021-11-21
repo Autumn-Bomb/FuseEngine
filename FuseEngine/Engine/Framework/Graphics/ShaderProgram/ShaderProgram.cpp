@@ -92,7 +92,7 @@ void FuseEngine::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 	if (!success)
 	{
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::COMPILATION_FAILED - " << infoLog << std::endl;
+		std::cout << "ERROR::SHADER::LINK_FAILED: " << infoLog << std::endl;
 	}
 }
 

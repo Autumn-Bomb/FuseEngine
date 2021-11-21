@@ -1,2 +1,5 @@
-﻿  Profiler.cpp
-  FuseEngine.vcxproj -> E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\x64\Debug\FuseEngine.exe
+﻿  Editor.cpp
+  Scene.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  FuseEngine.vcxproj -> C:\Users\Daniel\Desktop\FuseEngine\x64\Debug\FuseEngine.exe

@@ -20,7 +20,7 @@ void FuseEngine::Profiler::OnImGuiRender()
 		PrintStatsToConsole();
 	}
 
-	if (ImGui::CollapsingHeader("RENDERING STATS"))
+	if (ImGui::CollapsingHeader("SYSTEM STATS"))
 	{
 		ImGui::TextWrapped("Vendor: %s", (char*)m_Vendor);
 		ImGui::TextWrapped("Renderer: %s", (char*)m_Renderer);
@@ -29,9 +29,9 @@ void FuseEngine::Profiler::OnImGuiRender()
 	if (ImGui::CollapsingHeader("ENGINE STATS"))
 	{
 		ImGui::TextWrapped("FPS: %i", m_FPS);
-		ImGui::TextWrapped("Frametime: %i", m_Frametime);
+		ImGui::TextWrapped("Frametime: %04.2f m/s", m_Frametime * 10000);
 	}
-	if (ImGui::CollapsingHeader("GPU STATS"))
+	if (ImGui::CollapsingHeader("RENDERING STATS"))
 	{
 		ImGui::Text("Entities: %i", 0);
 		ImGui::Text("Draw Calls: %i", 0);
