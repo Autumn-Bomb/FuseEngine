@@ -5,7 +5,6 @@ FuseEngine::Scene::Scene()
 	m_VAO = 0;
 	m_VBO = 0;
 	m_FBO = 0;
-	m_RBO = 0;
 }
 FuseEngine::Scene::~Scene() {}
 
@@ -18,9 +17,9 @@ void FuseEngine::Scene::SetupShaders()
 void FuseEngine::Scene::BindShaders()
 {
 	glGenVertexArrays(1, &m_VAO);
-	glGenBuffers(1, &m_VBO);
-
 	glBindVertexArray(m_VAO);
+
+	glGenBuffers(1, &m_VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(m_Vertices), m_Vertices, GL_STATIC_DRAW);
@@ -41,13 +40,6 @@ void FuseEngine::Scene::SetupFBO()
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_Texture, 0);
-
-	glGenRenderbuffers(1, &m_RBO);
-	glBindRenderbuffer(GL_RENDERBUFFER, m_RBO);
-	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, 1920, 1061);
-	glBindRenderbuffer(GL_RENDERBUFFER, 0);
-
-	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, m_RBO);
 
 	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 	{

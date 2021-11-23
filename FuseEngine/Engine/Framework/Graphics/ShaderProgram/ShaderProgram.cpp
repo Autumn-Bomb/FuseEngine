@@ -41,6 +41,9 @@ void FuseEngine::ShaderProgram::LoadShaders(const char* vertexShaderPath, const 
 
 	m_VertexShaderCode = m_VertexCode.c_str();
 	m_FragmentShaderCode = m_FragmentCode.c_str();
+
+	std::cout << "Vertex Shader: " << "\n" << m_VertexShaderCode << std::endl;
+	std::cout << "Fragment Shader: " << "\n" << m_FragmentShaderCode << std::endl;
 }
 
 void FuseEngine::ShaderProgram::CreateShaders()
@@ -81,6 +84,10 @@ void FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader, const char
 		glGetShaderInfoLog(shader, 512, NULL, infoLog);
 		std::cout << "ERROR::SHADER::COMPILATION_FAILED::" << shaderName << ": " << infoLog << std::endl;
 	}
+	else
+	{ 
+		std::cout << "SUCCESS::SHADER::COMPILATION_COMPLETED" << std::endl;
+	}
 }
 
 void FuseEngine::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
@@ -93,6 +100,10 @@ void FuseEngine::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 	{
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
 		std::cout << "ERROR::SHADER::LINK_FAILED: " << infoLog << std::endl;
+	}
+	else
+	{
+		std::cout << "SUCCESS::SHADER::LINK_COMPLETED " << std::endl;
 	}
 }
 

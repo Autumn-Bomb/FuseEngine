@@ -98,8 +98,6 @@ void FuseEngine::Window::MainWindowLoop()
 
 void FuseEngine::Window::Render()
 {
-	// Clear the screen with the colour grey
-
 	// Create a new frame for ImGui
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();

@@ -26,7 +26,6 @@ namespace FuseEngine
 			uint32_t m_VBO;
 			uint32_t m_VAO;
 			uint32_t m_FBO;
-			uint32_t m_RBO;
 
 			uint32_t m_Texture;
 
