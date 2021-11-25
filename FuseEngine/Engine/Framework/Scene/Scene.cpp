@@ -49,17 +49,17 @@ void FuseEngine::Scene::SetupFBO()
 	glBindFramebuffer(GL_FRAMEBUFFER, m_FBO);
 	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-	
+
 	Render();
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	m_ShaderProgram.Use();
 	glBindVertexArray(m_VAO);
 	glBindTexture(GL_TEXTURE_2D, m_Texture);
 
+	glBindVertexArray(0);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glDeleteFramebuffers(1, &m_FBO);
 }
@@ -71,5 +71,6 @@ void FuseEngine::Scene::ProcessInput()
 
 void FuseEngine::Scene::Render()
 {
+	m_ShaderProgram.Use();
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 }

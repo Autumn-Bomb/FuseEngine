@@ -12,9 +12,6 @@ FuseEngine::ShaderProgram::~ShaderProgram() {}
 
 void FuseEngine::ShaderProgram::LoadShaders(const char* vertexShaderPath, const char* fragmentShaderPath)
 {
-	std::string m_VertexCode;
-	std::string m_FragmentCode;
-
 	std::ifstream vertexShaderFile;
 	std::ifstream fragmentShaderFile;
 
@@ -33,17 +30,14 @@ void FuseEngine::ShaderProgram::LoadShaders(const char* vertexShaderPath, const 
 
 		m_VertexCode = vertexShaderStream.str();
 		m_FragmentCode = fragmentShaderStream.str();
+
+		m_VertexShaderCode = m_VertexCode.c_str();
+		m_FragmentShaderCode = m_FragmentCode.c_str();
 	}
 	catch (std::ofstream::failure e)
 	{
 		std::cout << "ERROR: SHADER FILE NOT SUCCESSFULLY READ" << std::endl;
 	}
-
-	m_VertexShaderCode = m_VertexCode.c_str();
-	m_FragmentShaderCode = m_FragmentCode.c_str();
-
-	std::cout << "Vertex Shader: " << "\n" << m_VertexShaderCode << std::endl;
-	std::cout << "Fragment Shader: " << "\n" << m_FragmentShaderCode << std::endl;
 }
 
 void FuseEngine::ShaderProgram::CreateShaders()

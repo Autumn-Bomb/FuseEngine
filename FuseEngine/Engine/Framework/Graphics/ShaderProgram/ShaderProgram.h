@@ -34,5 +34,8 @@ namespace FuseEngine
 
 			const char* m_VertexShaderCode;
 			const char* m_FragmentShaderCode;
+
+			std::string m_VertexCode;
+			std::string m_FragmentCode;
 	};
 }

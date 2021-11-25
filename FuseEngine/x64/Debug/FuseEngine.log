@@ -1,2 +1,12 @@
-﻿  ShaderProgram.cpp
+﻿  Editor.cpp
+  GameViewport.cpp
+E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Editor\Panels\GameViewport\GameViewport.cpp(12,48): warning C4312: 'type cast': conversion from 'uint32_t' to 'void *' of greater size
+  SceneViewport.cpp
+E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Editor\Panels\SceneViewport\SceneViewport.cpp(12,48): warning C4312: 'type cast': conversion from 'uint32_t' to 'void *' of greater size
+  Window.cpp
+  ShaderProgram.cpp
+  PanelManager.cpp
+  Scene.cpp
+  Main.cpp
+  Generating Code...
   FuseEngine.vcxproj -> E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\x64\Debug\FuseEngine.exe
