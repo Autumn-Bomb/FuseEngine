@@ -9,7 +9,7 @@ void FuseEngine::GameViewport::OnImGuiRender()
 
 	// Render ImGui Texture here with FBO
 	ImVec2 vWindowSize = ImGui::GetWindowSize();
-	ImGui::Image((void*)m_Scene.GetRenderTexture(), ImVec2(vWindowSize.x, vWindowSize.y));
+	ImGui::Image((ImTextureID)m_Scene.GetRenderTexture(), ImVec2(vWindowSize.x, vWindowSize.y));
 
 	ImGui::End();
 }

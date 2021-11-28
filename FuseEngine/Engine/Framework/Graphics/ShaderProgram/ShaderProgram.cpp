@@ -4,35 +4,43 @@ FuseEngine::ShaderProgram::ShaderProgram()
 {
 	m_FragmentShader = 0;
 	m_VertexShader = 0;
+	m_ComputeShader = 0;
+	m_ShaderProgramID = 0;
+
 	m_VertexShaderCode = "";
 	m_FragmentShaderCode = "";
-	m_ShaderProgramID = 0;
+	m_ComputeShaderCode = "";
+
+	m_Timer.Start();
 }
 FuseEngine::ShaderProgram::~ShaderProgram() {}
 
-void FuseEngine::ShaderProgram::LoadShaders(const char* vertexShaderPath, const char* fragmentShaderPath)
+void FuseEngine::ShaderProgram::LoadShader(GLuint shaderType, const char* name, const char* shaderPath)
 {
-	std::ifstream vertexShaderFile;
-	std::ifstream fragmentShaderFile;
+	std::ifstream shaderFile;
 
 	try
 	{
-		vertexShaderFile.open(vertexShaderPath);
-		fragmentShaderFile.open(fragmentShaderPath);
+		std::stringstream shaderStream;
 
-		std::stringstream vertexShaderStream, fragmentShaderStream;
+		shaderFile.open(shaderPath);
+		shaderStream << shaderFile.rdbuf();
 
-		vertexShaderStream << vertexShaderFile.rdbuf();
-		fragmentShaderStream << fragmentShaderFile.rdbuf();
+		if (shaderType == GL_VERTEX_SHADER)
+		{
+			m_VertexCode = shaderStream.str();
+			m_VertexShaderCode = m_VertexCode.c_str();
+		}
+		else if (shaderType == GL_FRAGMENT_SHADER)
+		{
+			m_FragmentCode = shaderStream.str();
+			m_FragmentShaderCode = m_FragmentCode.c_str();
+		}
 
-		vertexShaderFile.close();
-		fragmentShaderFile.close();
+		shaderFile.close();
 
-		m_VertexCode = vertexShaderStream.str();
-		m_FragmentCode = fragmentShaderStream.str();
-
-		m_VertexShaderCode = m_VertexCode.c_str();
-		m_FragmentShaderCode = m_FragmentCode.c_str();
+		m_ShaderCache[name] = shaderPath;
+		CreateShader(shaderType);
 	}
 	catch (std::ofstream::failure e)
 	{
@@ -40,26 +48,61 @@ void FuseEngine::ShaderProgram::LoadShaders(const char* vertexShaderPath, const 
 	}
 }
 
-void FuseEngine::ShaderProgram::CreateShaders()
+void FuseEngine::ShaderProgram::CreateShader(GLuint shaderType)
 {
-	m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(m_VertexShader, 1, &m_VertexShaderCode, NULL);
-	glCompileShader(m_VertexShader);
-	CheckShaderCompilation(m_VertexShader, "VERTEX SHADER");
+	if(shaderType == GL_VERTEX_SHADER)
+	{
+		m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
+		glShaderSource(m_VertexShader, 1, &m_VertexShaderCode, NULL);
+		glCompileShader(m_VertexShader);
+		
+		if (CheckShaderCompilation(m_VertexShader, "VERTEX"))
+		{
+			m_Shaders.emplace_back(m_VertexShader);
+		}
+	}
+	else if(shaderType == GL_FRAGMENT_SHADER)
+	{
+		m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+		glShaderSource(m_FragmentShader, 1, &m_FragmentShaderCode, NULL);
+		glCompileShader(m_FragmentShader);
+		
+		if (CheckShaderCompilation(m_FragmentShader, "FRAGMENT"))
+		{
+			m_Shaders.emplace_back(m_FragmentShader);
+		}
+	}
+	else if(shaderType == GL_COMPUTE_SHADER)
+	{ 
+		m_ComputeShader = glCreateShader(GL_COMPUTE_SHADER);
+		glShaderSource(m_ComputeShader, 1, &m_ComputeShaderCode, NULL);
+		glCompileShader(m_ComputeShader);
 
-	m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(m_FragmentShader, 1, &m_FragmentShaderCode, NULL);
-	glCompileShader(m_FragmentShader);
-	CheckShaderCompilation(m_FragmentShader, "FRAGMENT SHADER");
+		if (CheckShaderCompilation(m_ComputeShader, "COMPUTE"))
+		{
+			m_Shaders.emplace_back(m_ComputeShader);
+		}
+	}
+}
 
+void FuseEngine::ShaderProgram::Link()
+{
 	m_ShaderProgramID = glCreateProgram();
-	glAttachShader(m_ShaderProgramID, m_VertexShader);
-	glAttachShader(m_ShaderProgramID, m_FragmentShader);
-	glLinkProgram(m_ShaderProgramID);
-	CheckShaderLink(m_ShaderProgramID);
 
-	glDeleteShader(m_VertexShader);
-	glDeleteShader(m_FragmentShader);
+	for (auto shader : m_Shaders)
+	{
+		glAttachShader(m_ShaderProgramID, shader);
+	}
+	
+	glLinkProgram(m_ShaderProgramID);
+	
+	if (CheckShaderLink(m_ShaderProgramID))
+	{
+		for (auto shader : m_Shaders)
+		{
+			glDeleteShader(shader);
+		}
+	}
 }
 
 void FuseEngine::ShaderProgram::Use()
@@ -67,7 +110,7 @@ void FuseEngine::ShaderProgram::Use()
 	glUseProgram(m_ShaderProgramID);
 }
 
-void FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shaderName)
+bool FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shaderName)
 {
 	int success;
 	char infoLog[512];
@@ -77,14 +120,16 @@ void FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader, const char
 	{
 		glGetShaderInfoLog(shader, 512, NULL, infoLog);
 		std::cout << "ERROR::SHADER::COMPILATION_FAILED::" << shaderName << ": " << infoLog << std::endl;
+		return false;
 	}
 	else
 	{ 
-		std::cout << "SUCCESS::SHADER::COMPILATION_COMPLETED" << std::endl;
+		std::cout << "SUCCESS::SHADER::COMPILATION_COMPLETED::" << shaderName << std::endl;
+		return true;
 	}
 }
 
-void FuseEngine::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
+bool FuseEngine::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 {
 	int success;
 	char infoLog[512];
@@ -94,24 +139,42 @@ void FuseEngine::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 	{
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
 		std::cout << "ERROR::SHADER::LINK_FAILED: " << infoLog << std::endl;
+		return false;
 	}
 	else
 	{
 		std::cout << "SUCCESS::SHADER::LINK_COMPLETED " << std::endl;
+		return true;
 	}
 }
 
-void FuseEngine::ShaderProgram::SetBool(const std::string& name, bool value)
+void FuseEngine::ShaderProgram::CheckShadersForChanges()
+{
+	if (m_Timer.elapsedTime() >= m_RefreshTime)
+	{
+		ShaderChanged();
+		m_Timer.Restart();
+	}
+}
+
+void FuseEngine::ShaderProgram::ShaderChanged()
+{
+	/* Load in new shader file, compare current stored file to new loaded file
+	   if they're the same, skip over. If they're not, load in the new file and rebind shaders
+	*/
+}
+
+void FuseEngine::ShaderProgram::SetBool(const std::string& name, bool value) const
 {
 	glUniform1i(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
 }
 
-void FuseEngine::ShaderProgram::SetInt(const std::string& name, int value)
+void FuseEngine::ShaderProgram::SetInt(const std::string& name, int value) const
 {
 	glUniform1i(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
 }
 
-void FuseEngine::ShaderProgram::SetFloat(const std::string& name, float value)
+void FuseEngine::ShaderProgram::SetFloat(const std::string& name, float value) const
 {
 	glUniform1f(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
 }

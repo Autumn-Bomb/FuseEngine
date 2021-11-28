@@ -10,6 +10,7 @@ FuseEngine::Editor::Editor()
 	m_PanelManager.AddPanel("Scene View", &m_SceneView);
 	m_PanelManager.AddPanel("Game View", &m_GameView);
 	m_PanelManager.AddPanel("Scene Hierarchy", &m_SceneHierarchy);
+	m_PanelManager.AddPanel("Resources", &m_Resources);
 }
 FuseEngine::Editor::~Editor() {}
 
@@ -45,6 +46,9 @@ void FuseEngine::Editor::RenderEditor()
 
 	m_MenuBar.OnImGuiRender();
 	HandlePanelDocking();
+
+	m_Scene.Update();
+
 	RenderActivePanels();
 
 	ImGui::End();

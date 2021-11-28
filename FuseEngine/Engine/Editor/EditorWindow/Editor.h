@@ -37,6 +37,7 @@ namespace FuseEngine
 			FuseEngine::SceneViewport m_SceneView;
 			FuseEngine::GameViewport m_GameView;
 			FuseEngine::SceneHierarchy m_SceneHierarchy;
+			FuseEngine::Resources m_Resources;
 
 		private:
 			FuseEngine::Scene m_Scene;

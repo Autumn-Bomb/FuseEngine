@@ -2,6 +2,8 @@
 #include "../Graphics/ShaderProgram/ShaderProgram.h"
 #include "glad.h"
 
+#include "../../../ImGui/imgui.h"
+
 #include <iostream>
 
 namespace FuseEngine
@@ -18,6 +20,7 @@ namespace FuseEngine
 			void SetupFBO();
 
 			void ProcessInput();
+			void Update();
 			void Render();
 
 			uint32_t GetRenderTexture() { return m_Texture; }
@@ -38,5 +41,7 @@ namespace FuseEngine
 				0.5f, -0.5f, 0.0f,
 				0.0f, 0.5f, 0.0f
 			};
+
+			float translation[2] = { 0.0f, 0.0f };
 	};
 }

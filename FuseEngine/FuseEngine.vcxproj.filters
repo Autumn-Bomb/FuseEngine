@@ -50,6 +50,8 @@
     <ClCompile Include="Engine\Editor\Panels\GameViewport\GameViewport.cpp" />
     <ClCompile Include="Engine\Editor\Panels\MenuBar\Menubar.cpp" />
     <ClCompile Include="Engine\Editor\Panels\SceneHierarchy\SceneHeriarchy.cpp" />
+    <ClCompile Include="Engine\Framework\ResourceManager\ResourceManager.cpp" />
+    <ClCompile Include="Engine\Editor\Panels\Resources\Resources.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -104,6 +106,32 @@
     <ClInclude Include="Engine\Editor\Panels\GameViewport\GameViewport.h" />
     <ClInclude Include="Engine\Editor\Panels\MenuBar\Menubar.h" />
     <ClInclude Include="Engine\Editor\Panels\SceneHierarchy\SceneHierarchy.h" />
+    <ClInclude Include="Engine\Framework\Timer\Timer.h" />
+    <ClInclude Include="Includes\Include\GLM\common.hpp" />
+    <ClInclude Include="Includes\Include\GLM\exponential.hpp" />
+    <ClInclude Include="Includes\Include\GLM\ext.hpp" />
+    <ClInclude Include="Includes\Include\GLM\fwd.hpp" />
+    <ClInclude Include="Includes\Include\GLM\geometric.hpp" />
+    <ClInclude Include="Includes\Include\GLM\glm.hpp" />
+    <ClInclude Include="Includes\Include\GLM\integer.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat2x2.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat2x3.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat2x4.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat3x2.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat3x3.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat3x4.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat4x2.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat4x3.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat4x4.hpp" />
+    <ClInclude Include="Includes\Include\GLM\matrix.hpp" />
+    <ClInclude Include="Includes\Include\GLM\packing.hpp" />
+    <ClInclude Include="Includes\Include\GLM\trigonometric.hpp" />
+    <ClInclude Include="Includes\Include\GLM\vec2.hpp" />
+    <ClInclude Include="Includes\Include\GLM\vec3.hpp" />
+    <ClInclude Include="Includes\Include\GLM\vec4.hpp" />
+    <ClInclude Include="Includes\Include\GLM\vector_relational.hpp" />
+    <ClInclude Include="Engine\Framework\ResourceManager\ResourceManager.h" />
+    <ClInclude Include="Engine\Editor\Panels\Resources\Resources.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">
@@ -153,11 +181,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Engine\Framework\Graphics\Shaders\Basic\VertexShader.glsl">
+    <None Include="Engine\Framework\Graphics\Shaders\Basic\VertexShader.vert">
       <Filter>src\Framework\Shaders</Filter>
     </None>
-    <None Include="Engine\Framework\Graphics\Shaders\Basic\FragmentShader.glsl">
+    <None Include="Engine\Framework\Graphics\Shaders\Basic\FragmentShader.frag">
       <Filter>src\Framework\Shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Includes\Include\GLM\CMakeLists.txt" />
   </ItemGroup>
 </Project>

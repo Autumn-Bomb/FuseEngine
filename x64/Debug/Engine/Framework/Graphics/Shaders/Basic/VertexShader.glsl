@@ -1,4 +1,4 @@
-#version 330 core
+#version 440 core
 layout (location = 0) in vec3 aPos;
 
 out vec4 vertexColour;
@@ -6,5 +6,5 @@ out vec4 vertexColour;
 void main()
 {
 	gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
-	vertexColour = vec4(0.5, 0.5, 0.5, 1.0);
+	vertexColour = vec4(0.5, 0.1, 0.5, 1.0);
 }

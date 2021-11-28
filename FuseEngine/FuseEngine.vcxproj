@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -118,6 +118,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)Includes/Include/GLFW/;$(ProjectDir)Includes/Include/GLAD/;$(ProjectDir)Includes/Include/GLAD/KHR/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,8 +145,10 @@
   <ItemGroup>
     <ClCompile Include="Engine\Editor\EditorWindow\Editor.cpp" />
     <ClCompile Include="Engine\Editor\Panels\MenuBar\Menubar.cpp" />
+    <ClCompile Include="Engine\Editor\Panels\Resources\Resources.cpp" />
     <ClCompile Include="Engine\Editor\Panels\SceneHierarchy\SceneHeriarchy.cpp" />
     <ClCompile Include="Engine\Framework\Panels\PanelManager\PanelManager.cpp" />
+    <ClCompile Include="Engine\Framework\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="Engine\Framework\Scene\Scene.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.cpp" />
     <ClCompile Include="Engine\Main\Main.cpp" />
@@ -165,15 +168,18 @@
   <ItemGroup>
     <ClInclude Include="Engine\Editor\EditorWindow\Editor.h" />
     <ClInclude Include="Engine\Editor\Panels\MenuBar\Menubar.h" />
+    <ClInclude Include="Engine\Editor\Panels\Resources\Resources.h" />
     <ClInclude Include="Engine\Editor\Panels\SceneHierarchy\SceneHierarchy.h" />
     <ClInclude Include="Engine\Framework\Panels\BasePanel\BasePanel.h" />
     <ClInclude Include="Engine\Framework\Panels\PanelManager\PanelManager.h" />
+    <ClInclude Include="Engine\Framework\ResourceManager\ResourceManager.h" />
     <ClInclude Include="Engine\Framework\Scene\Scene.h" />
     <ClInclude Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.h" />
     <ClInclude Include="Engine\Editor\Panels\GameViewport\GameViewport.h" />
     <ClInclude Include="Engine\Editor\Panels\SceneViewport\SceneViewport.h" />
     <ClInclude Include="Engine\Editor\Panels\Profiler\Profiler.h" />
     <ClInclude Include="Engine\Editor\Window\Window.h" />
+    <ClInclude Include="Engine\Framework\Timer\Timer.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_glfw.h" />
@@ -183,10 +189,36 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="Includes\Include\GLM\common.hpp" />
+    <ClInclude Include="Includes\Include\GLM\exponential.hpp" />
+    <ClInclude Include="Includes\Include\GLM\ext.hpp" />
+    <ClInclude Include="Includes\Include\GLM\fwd.hpp" />
+    <ClInclude Include="Includes\Include\GLM\geometric.hpp" />
+    <ClInclude Include="Includes\Include\GLM\glm.hpp" />
+    <ClInclude Include="Includes\Include\GLM\integer.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat2x2.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat2x3.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat2x4.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat3x2.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat3x3.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat3x4.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat4x2.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat4x3.hpp" />
+    <ClInclude Include="Includes\Include\GLM\mat4x4.hpp" />
+    <ClInclude Include="Includes\Include\GLM\matrix.hpp" />
+    <ClInclude Include="Includes\Include\GLM\packing.hpp" />
+    <ClInclude Include="Includes\Include\GLM\trigonometric.hpp" />
+    <ClInclude Include="Includes\Include\GLM\vec2.hpp" />
+    <ClInclude Include="Includes\Include\GLM\vec3.hpp" />
+    <ClInclude Include="Includes\Include\GLM\vec4.hpp" />
+    <ClInclude Include="Includes\Include\GLM\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Engine\Framework\Graphics\Shaders\Basic\FragmentShader.glsl" />
-    <None Include="Engine\Framework\Graphics\Shaders\Basic\VertexShader.glsl" />
+    <None Include="Engine\Framework\Graphics\Shaders\Basic\FragmentShader.frag" />
+    <None Include="Engine\Framework\Graphics\Shaders\Basic\VertexShader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Includes\Include\GLM\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
