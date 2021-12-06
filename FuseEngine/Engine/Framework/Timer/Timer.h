@@ -1,23 +1,3 @@
-#pragma once
-#include <time.h>
-
-namespace FuseEngine
-{
-	class Timer
-	{
-		public:
-			Timer() { m_BegTime = 0; }
-			~Timer() {}
-
-		public:
-			void Start() { m_BegTime = clock(); }
-			void Restart() { m_BegTime = clock(); }
-
-		public:
-			bool isOnTimeout(unsigned long seconds) { return seconds >= elapsedTime(); }
-			unsigned long elapsedTime() { return ((unsigned long)clock() - m_BegTime) / CLOCKS_PER_SEC; }
-	
-		private:
-			unsigned long m_BegTime;
-	};
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:641841842ed45b035a9aff1e602e2da63517eff4f30f6dc451973987c95f7bed
+size 477

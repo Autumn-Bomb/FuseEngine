@@ -52,6 +52,11 @@
     <ClCompile Include="Engine\Editor\Panels\SceneHierarchy\SceneHeriarchy.cpp" />
     <ClCompile Include="Engine\Framework\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="Engine\Editor\Panels\Resources\Resources.cpp" />
+    <ClCompile Include="Includes\Include\STB\stb_vorbis.c" />
+    <ClCompile Include="Engine\Framework\Graphics\Renderer2D\Renderer2D.cpp" />
+    <ClCompile Include="Engine\Framework\Graphics\Shape2D\Shape2D.cpp" />
+    <ClCompile Include="Engine\Editor\Panels\Inspector\Inspector.cpp" />
+    <ClCompile Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -132,6 +137,29 @@
     <ClInclude Include="Includes\Include\GLM\vector_relational.hpp" />
     <ClInclude Include="Engine\Framework\ResourceManager\ResourceManager.h" />
     <ClInclude Include="Engine\Editor\Panels\Resources\Resources.h" />
+    <ClInclude Include="Includes\Include\STB\stb_image.h" />
+    <ClInclude Include="Includes\Include\STB\stb_c_lexer.h" />
+    <ClInclude Include="Includes\Include\STB\stb_connected_components.h" />
+    <ClInclude Include="Includes\Include\STB\stb_divide.h" />
+    <ClInclude Include="Includes\Include\STB\stb_ds.h" />
+    <ClInclude Include="Includes\Include\STB\stb_dxt.h" />
+    <ClInclude Include="Includes\Include\STB\stb_easy_font.h" />
+    <ClInclude Include="Includes\Include\STB\stb_herringbone_wang_tile.h" />
+    <ClInclude Include="Includes\Include\STB\stb_hexwave.h" />
+    <ClInclude Include="Includes\Include\STB\stb_image_resize.h" />
+    <ClInclude Include="Includes\Include\STB\stb_image_write.h" />
+    <ClInclude Include="Includes\Include\STB\stb_include.h" />
+    <ClInclude Include="Includes\Include\STB\stb_leakcheck.h" />
+    <ClInclude Include="Includes\Include\STB\stb_rect_pack.h" />
+    <ClInclude Include="Includes\Include\STB\stb_sprintf.h" />
+    <ClInclude Include="Includes\Include\STB\stb_textedit.h" />
+    <ClInclude Include="Includes\Include\STB\stb_tilemap_editor.h" />
+    <ClInclude Include="Includes\Include\STB\stb_truetype.h" />
+    <ClInclude Include="Includes\Include\STB\stb_voxel_render.h" />
+    <ClInclude Include="Engine\Framework\Graphics\Renderer2D\Renderer2D.h" />
+    <ClInclude Include="Engine\Framework\Graphics\Shape2D\Shape2D.h" />
+    <ClInclude Include="Engine\Editor\Panels\Inspector\Inspector.h" />
+    <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

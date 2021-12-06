@@ -1,20 +1,3 @@
-#pragma once
-#include "../../../Framework/Panels/BasePanel/BasePanel.h"
-#include "../../../Framework/ResourceManager/ResourceManager.h"
-
-namespace FuseEngine
-{
-	class Resources : public FuseEngine::BasePanel
-	{
-		public:
-			Resources();
-			~Resources();
-
-		public:
-			void OnImGuiRender() override;
-			void AddAllResources();
-
-		private:
-			FuseEngine::ResourceManager m_ResourceManager;
-	};
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2e0353947ed2b63d7b873b49e27b4e3f5a6150c25519f87a2b140e75e0dbb345
+size 412

@@ -1,20 +1,3 @@
-#include "PanelManager.h"
-
-FuseEngine::PanelManager::PanelManager() {}
-FuseEngine::PanelManager::~PanelManager() {}
-
-void FuseEngine::PanelManager::AddPanel(const char* name, FuseEngine::BasePanel* panel)
-{
-	m_Panels[name] = panel; 
-}
-
-void FuseEngine::PanelManager::RenderActivePanels()
-{
-	for (auto panel : m_Panels)
-	{
-		if (panel.second->GetActiveState())
-		{
-			panel.second->OnImGuiRender();
-		}
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:26fbc8f114fd086afea251273f4474849726f62f32dd57a3cfdee0558239f573
+size 425
