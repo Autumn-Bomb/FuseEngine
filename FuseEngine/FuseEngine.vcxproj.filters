@@ -54,7 +54,6 @@
     <ClCompile Include="Engine\Editor\Panels\Resources\Resources.cpp" />
     <ClCompile Include="Includes\Include\STB\stb_vorbis.c" />
     <ClCompile Include="Engine\Framework\Graphics\Renderer2D\Renderer2D.cpp" />
-    <ClCompile Include="Engine\Framework\Graphics\Shape2D\Shape2D.cpp" />
     <ClCompile Include="Engine\Editor\Panels\Inspector\Inspector.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.cpp" />
   </ItemGroup>
@@ -160,6 +159,7 @@
     <ClInclude Include="Engine\Framework\Graphics\Shape2D\Shape2D.h" />
     <ClInclude Include="Engine\Editor\Panels\Inspector\Inspector.h" />
     <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
+    <ClInclude Include="Engine\Framework\Camera\Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">
