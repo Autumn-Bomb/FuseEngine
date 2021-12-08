@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fe1a9f6458b38ead3f68a3873c6e9b55c2ca7eb1e3f7b7593efe9afd67e4473b
-size 1428
+#pragma once
+#include "../GLM/glm.hpp"
+#include "../GLM/gtc/matrix_transform.hpp"
+#include "../GLM/gtc/type_ptr.hpp"
+
+#include "../../ResourceManager/ResourceManager.h"
+#include "../../Graphics/ShaderProgram/ShaderProgram.h"
+#include "../Framebuffer/Framebuffer.h" 
+#include "../../Camera/Camera.h"
+
+#include "../Sprite/Sprite.h"
+
+namespace FuseEngine
+{
+	class Renderer2D
+	{
+		public:
+			Renderer2D();
+			~Renderer2D();
+
+		public:
+			void InitialiseRenderer();
+
+		public:
+			void Render();
+
+		public:
+			uint32_t GetFramebufferObject() { return m_FrameBuffer.GetFramebufferObject(); }
+			FuseEngine::Framebuffer& GetFramebuffer() { return m_FrameBuffer; }
+
+		private:
+			FuseEngine::Framebuffer m_FrameBuffer;
+			FuseEngine::ShaderProgram m_ShaderProgram;
+			FuseEngine::Camera m_Camera;
+
+			uint32_t m_Background;
+			uint32_t m_Middleground;
+			FuseEngine::Sprite m_BackgroundSprite;
+			FuseEngine::Sprite m_MiddlegroundSprite;
+	};
+}

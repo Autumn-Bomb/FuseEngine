@@ -56,6 +56,7 @@
     <ClCompile Include="Engine\Framework\Graphics\Renderer2D\Renderer2D.cpp" />
     <ClCompile Include="Engine\Editor\Panels\Inspector\Inspector.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.cpp" />
+    <ClCompile Include="Engine\Framework\Graphics\Sprite\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -160,6 +161,7 @@
     <ClInclude Include="Engine\Editor\Panels\Inspector\Inspector.h" />
     <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
     <ClInclude Include="Engine\Framework\Camera\Camera.h" />
+    <ClInclude Include="Engine\Framework\Graphics\Sprite\Sprite.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">
@@ -218,5 +220,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Includes\Include\GLM\CMakeLists.txt" />
+    <Text Include="ToDo.txt" />
   </ItemGroup>
 </Project>

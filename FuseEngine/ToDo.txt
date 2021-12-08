@@ -1,0 +1,8 @@
+Refactor: 
+
+Bugs:
+1) Fix an issue with the framebuffer not resizing when a viewport is resized
+
+Features:
+1) Create a spriteRenderer class used to render multiple sprites at the same time (Done)
+2) Create a separate camera class for the editor camera, this way to game viewport only sees what the game camera sees
