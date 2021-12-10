@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6c4c377a7c6bdf21a6dd5122b3e603218ddfcb54809c9dac28f20ddf6f07eb84
-size 408
+#pragma once
+#include "../../../Framework/Panels/BasePanel/BasePanel.h"
+#include "../../../Framework/ResourceManager/ResourceManager.h"
+
+namespace Fuse
+{
+	class Resources : public Fuse::BasePanel
+	{
+		public:
+			Resources();
+			~Resources();
+
+		public:
+			void OnImGuiRender() override;
+			void AddAllResources();
+
+		private:
+			int m_TextureCount;
+			int m_ShaderCount;
+	};
+}

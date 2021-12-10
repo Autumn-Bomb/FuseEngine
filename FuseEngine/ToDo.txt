@@ -1,8 +1,13 @@
 Refactor: 
 
 Bugs:
-1) Fix an issue with the framebuffer not resizing when a viewport is resized
+1) Fix an issue with the framebuffer not resizing when a viewport is resized (if(m_FBO != 0) DeleteCurrentBuffer and call InitialiseFramebuffer) (DONE)
+2) Camera doesn't resize to fit current Scene viewport size
 
 Features:
-1) Create a spriteRenderer class used to render multiple sprites at the same time (Done)
+1) Create a spriteRenderer class used to render multiple sprites at the same time (DONE)
 2) Create a separate camera class for the editor camera, this way to game viewport only sees what the game camera sees
+
+Research:
+Resize and delete VBO: https://github.com/nCine/nCine/blob/master/src/shaders/sprite_vs.glsl
+VAO pool: https://github.com/nCine/nCine/blob/master/src/graphics/RenderVaoPool.cpp

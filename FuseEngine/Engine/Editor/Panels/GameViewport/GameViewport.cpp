@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ff6eed14350816c8041fc3af724b117b3a155a32ff734bf29e1d690ba0e6a047
-size 537
+#include "GameViewport.h"
+
+Fuse::GameViewport::GameViewport() {}
+Fuse::GameViewport::~GameViewport() {}
+
+void Fuse::GameViewport::OnImGuiRender()
+{
+	ImGui::Begin("Game View", &GetActiveState(), ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+
+	// Render ImGui Texture here with FBO
+	ImVec2 vWindowSize = ImGui::GetWindowSize();
+	ImGui::Image((uint32_t*)m_Scene.GetRenderer().GetFramebufferObject(), ImVec2(vWindowSize.x, vWindowSize.y));
+
+	ImGui::End();
+}

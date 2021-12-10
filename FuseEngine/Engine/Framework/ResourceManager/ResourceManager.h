@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:96c8b85e3ad29b251081db8cc8ff631a6e3c6b48a213ae19455616dcd095ef35
-size 526
+#pragma once
+#include "../../Include/STB/stb_image.h"
+#include "../Graphics/ShaderProgram/ShaderProgram.h"
+
+#include <unordered_map>
+
+namespace Fuse
+{
+	class ResourceManager
+	{
+		public:
+			ResourceManager();
+			~ResourceManager();
+
+		public:
+			static uint32_t LoadTexture(const char* path);
+
+		public:
+			static int GetTextureCount() { return m_TextureCount; }
+			static int GetShaderCount() { return m_ShaderCount; }
+
+		public:
+			static int m_TextureCount;
+			static int m_ShaderCount;
+	};
+}

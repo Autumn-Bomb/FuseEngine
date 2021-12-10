@@ -57,6 +57,8 @@
     <ClCompile Include="Engine\Editor\Panels\Inspector\Inspector.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Sprite\Sprite.cpp" />
+    <ClCompile Include="Engine\Framework\Input\Input.cpp" />
+    <ClCompile Include="Engine\Framework\EditorCamera\EditorCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -160,8 +162,9 @@
     <ClInclude Include="Engine\Framework\Graphics\Shape2D\Shape2D.h" />
     <ClInclude Include="Engine\Editor\Panels\Inspector\Inspector.h" />
     <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
-    <ClInclude Include="Engine\Framework\Camera\Camera.h" />
+    <ClInclude Include="Engine\Framework\EditorCamera\EditorCamera.h" />
     <ClInclude Include="Engine\Framework\Graphics\Sprite\Sprite.h" />
+    <ClInclude Include="Engine\Framework\Input\Input.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

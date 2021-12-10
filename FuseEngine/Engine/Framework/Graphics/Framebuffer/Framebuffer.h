@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:96ca1d99f3ba224b4dacd72bcef9a532459d65e070b622e38ab7d7beac84eaef
-size 475
+#pragma once
+#include <cstdint>
+#include <glad.h>
+#include <iostream>
+
+namespace Fuse
+{
+	class Framebuffer
+	{
+		public:
+			Framebuffer();
+			~Framebuffer();
+
+		public:
+			void InitialiseFramebuffer(const uint32_t width, const uint32_t height);
+			void Bind();
+			void Unbind();
+			void DeleteCurrentBuffer();
+
+		public:
+			void Resize(uint32_t width, uint32_t height);
+
+		public:
+			uint32_t GetFramebufferObject() { return m_Framebuffer; }
+		
+		private:
+			uint32_t m_CurrentWidth;
+			uint32_t m_CurrentHeight;
+
+			uint32_t m_FBO;
+			uint32_t m_Framebuffer;
+	};
+}

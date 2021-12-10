@@ -1,7 +1,7 @@
 #include "Sprite.h"
 
-FuseEngine::Sprite::Sprite() {}
-FuseEngine::Sprite::Sprite(FuseEngine::ShaderProgram& shaderProgram)
+Fuse::Sprite::Sprite() {}
+Fuse::Sprite::Sprite(Fuse::ShaderProgram& shaderProgram)
 {
 	m_ShaderProgram = shaderProgram; 
 
@@ -26,12 +26,12 @@ FuseEngine::Sprite::Sprite(FuseEngine::ShaderProgram& shaderProgram)
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(2);
 }
-FuseEngine::Sprite::~Sprite() {}
+Fuse::Sprite::~Sprite() {}
 
-void FuseEngine::Sprite::Render(uint32_t texture, glm::vec2 position, glm::vec2 size, float rotate, glm::vec4 color)
+void Fuse::Sprite::Render(uint32_t texture, glm::vec2 position, glm::vec2 size, float rotate, glm::vec4 color)
 {
 	m_QuadTexture = texture;
-
+	
 	glBindTexture(GL_TEXTURE_2D, m_QuadTexture);
 	m_Transform = glm::mat4(1.0f);
 

@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0ccecf777beb66a11d477f4c6935edb38b52dddbd2f1966866f2434a43ea7940
-size 472
+#pragma once
+#include "../../../ImGui/imgui.h"
+#include "../../../Framework/Panels/BasePanel/BasePanel.h"
+#include "../../../Framework/Scene/Scene.h"
+
+namespace Fuse
+{
+	class GameViewport : public Fuse::BasePanel
+	{
+		public:
+			GameViewport();
+			~GameViewport();
+
+		public:
+			void OnImGuiRender() override;
+
+		public:
+			void SetActiveScene(Fuse::Scene& scene) { m_Scene = scene; }
+
+		private:
+			Fuse::Scene m_Scene;
+	};
+}

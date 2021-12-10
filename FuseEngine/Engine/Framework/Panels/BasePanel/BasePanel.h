@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dbc04313b7ff2d8fed7fa88477adbd360b4e23dd25aac4d6b6f820c7bd80d56c
-size 451
+#pragma once
+#include "../../../ImGui/imgui.h"
+#include <glad.h>
+
+namespace Fuse
+{
+	class BasePanel
+	{
+		public:
+			BasePanel() { m_IsActive = true; }
+			~BasePanel() {}
+
+		public:
+			virtual void OnImGuiRender() {}
+
+		public:
+			void ShowPanel(bool show) { m_IsActive = show; }
+			void HidePanel() { m_IsActive = false; }
+
+		public:
+			bool& GetActiveState() { return m_IsActive; }
+
+		private:
+			bool m_IsActive;
+	};
+}

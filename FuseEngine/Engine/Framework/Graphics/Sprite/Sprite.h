@@ -7,13 +7,13 @@
 
 #include "../ShaderProgram/ShaderProgram.h"
 
-namespace FuseEngine
+namespace Fuse
 {
 	class Sprite
 	{
 		public:
 			Sprite();
-			Sprite(FuseEngine::ShaderProgram& shaderProgram);
+			Sprite(Fuse::ShaderProgram& shaderProgram);
 			~Sprite();
 
 		public:
@@ -21,9 +21,10 @@ namespace FuseEngine
 
 		public:
 			void SetTranslation(glm::vec2 translation) { m_Transform = glm::translate(m_Transform, glm::vec3(translation.x, translation.y, 1.0f)); };
+			void Rotate(float rotation, glm::vec3 axis) { m_Transform = glm::rotate(glm::radians(rotation), axis); }
 
 		private:
-			FuseEngine::ShaderProgram m_ShaderProgram;
+			Fuse::ShaderProgram m_ShaderProgram;
 
 			uint32_t m_QuadVAO;
 			uint32_t m_QuadVBO;

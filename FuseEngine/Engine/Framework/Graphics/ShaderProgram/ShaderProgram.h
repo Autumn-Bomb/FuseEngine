@@ -12,7 +12,7 @@
 #include <fstream>
 #include <filesystem>
 
-namespace FuseEngine
+namespace Fuse
 {
 	class ShaderProgram
 	{

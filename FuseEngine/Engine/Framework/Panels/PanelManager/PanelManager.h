@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:81fcf4851b928503c79ac986d244fa3c72a9babc2701cb905f29a00391cfe901
-size 989
+#pragma once
+#include "../BasePanel/BasePanel.h"
+
+#include "../../../Editor/Panels/Profiler/Profiler.h"
+#include "../../../Editor/Panels/SceneViewport/SceneViewport.h"
+#include "../../../Editor/Panels/GameViewport/GameViewport.h"
+#include "../../../Editor/Panels/SceneHierarchy/SceneHierarchy.h"
+#include "../../../Editor/Panels/Resources/Resources.h"
+#include "../../../Editor/Panels/Inspector/Inspector.h"
+
+#include <unordered_map>
+
+namespace Fuse
+{
+	class PanelManager
+	{
+		public:
+			PanelManager();
+			~PanelManager();
+
+		public:
+			void RenderActivePanels();
+
+		public:
+			void AddPanel(const char* name, Fuse::BasePanel* panel);
+
+		public:
+			Fuse::BasePanel* GetPanel(const char* name)
+			{
+				auto pairFound = m_Panels.find(name);
+
+				if (pairFound != m_Panels.end())
+					return pairFound->second;
+				else
+					return nullptr;
+			}
+
+		private:
+			std::unordered_map<std::string, Fuse::BasePanel*> m_Panels;
+	};
+}

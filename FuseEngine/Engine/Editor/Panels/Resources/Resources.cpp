@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1c16cc5b1a8c8a15b632b24a4a1b47bebb412e11747bc06cf75e7bb86fec350d
-size 1025
+#include "Resources.h"
+
+Fuse::Resources::Resources() {}
+Fuse::Resources::~Resources() {}
+
+void Fuse::Resources::AddAllResources()
+{
+	// Used to loop through all resources stored in the ResourceManager and add them to the list
+	m_TextureCount = Fuse::ResourceManager::GetTextureCount();
+	m_ShaderCount = Fuse::ResourceManager::GetShaderCount();
+}
+
+void Fuse::Resources::OnImGuiRender()
+{
+	ImGui::Begin("Resources", &GetActiveState());
+
+	if (ImGui::TreeNode("Textures"))
+	{
+		ImGui::Text("Textures Loaded: %i", m_TextureCount);
+		ImGui::TreePop();
+	}
+	if (ImGui::TreeNode("Texture Atlas"))
+	{
+		ImGui::Text("Textures Atlases Loaded: %i", 0);
+		ImGui::TreePop();
+	}
+	if (ImGui::TreeNode("Sounds"))
+	{
+		ImGui::Text("Sounds Loaded: %i", 0);
+		ImGui::TreePop();
+	}
+	if (ImGui::TreeNode("Shaders"))
+	{
+		ImGui::Text("Shaders Loaded: %i", m_ShaderCount);
+
+		ImGui::Separator();
+		ImGui::Button("Reload Shaders");
+
+		ImGui::TreePop();
+	}
+
+	ImGui::End();
+}

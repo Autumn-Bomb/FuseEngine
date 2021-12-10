@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b1198b57682fc7dfd4fea320aec2457eb1577787bcf448985265cfe64f255990
-size 259
+#include "SceneHierarchy.h"
+
+Fuse::SceneHierarchy::SceneHierarchy() {}
+Fuse::SceneHierarchy::~SceneHierarchy() {}
+
+void Fuse::SceneHierarchy::OnImGuiRender()
+{
+	ImGui::Begin("Scene Hierarchy", &GetActiveState());
+	
+	ImGui::End();
+}

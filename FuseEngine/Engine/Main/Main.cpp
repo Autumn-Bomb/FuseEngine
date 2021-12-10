@@ -3,8 +3,8 @@
 
 int main()
 {
-	FuseEngine::Editor editor;
-	FuseEngine::Window window(editor);
+	Fuse::Editor editor;
+	Fuse::Window window(editor);
 
 	window.Initialise();
 	window.MainWindowLoop();

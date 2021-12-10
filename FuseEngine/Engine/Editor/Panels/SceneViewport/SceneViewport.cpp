@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6ef7d8d269cc5ef0efb6f3a6782223b9a89e3624d336db77a120a34da205608c
-size 544
+#include "SceneViewport.h"
+
+Fuse::SceneViewport::SceneViewport() {}
+Fuse::SceneViewport::~SceneViewport() {}
+
+void Fuse::SceneViewport::OnImGuiRender()
+{
+	ImGui::Begin("Scene View", &GetActiveState(), ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+
+	// Render ImGui Texture here with FBO
+	ImVec2 vWindowSize = ImGui::GetWindowSize();
+
+	m_Scene.GetRenderer().GetFramebuffer().Resize(vWindowSize.x, vWindowSize.y);
+	ImGui::Image((uint32_t*)m_Scene.GetRenderer().GetFramebufferObject(), ImVec2(vWindowSize.x, vWindowSize.y));
+	//m_Scene.GetRenderer().GetCamera().ResizeCamera(vWindowSize.x, vWindowSize.y);
+
+	ImGui::End();
+}

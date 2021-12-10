@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a4b9a2a911bb6f302610ee8bf7249991205b74ae69b84da834520273e48886eb
-size 1070
+#pragma once
+
+#include "../../Framework/Panels/PanelManager/PanelManager.h"
+#include "../Panels/MenuBar/Menubar.h"
+#include "../../Framework/Scene/Scene.h"
+
+#include <glfw3.h>
+
+namespace Fuse
+{
+	class Editor
+	{
+		public:
+			Editor();
+			~Editor();
+
+		public:
+			void RenderEditor();
+
+			void RenderActivePanels();
+			void HandlePanelDocking();
+
+			void SetupScene();
+
+		public:
+			void ProcessInput(GLFWwindow* window);
+			void CalculateFPSFrametime();
+			void ResetLastTime() { m_FPS = 0; m_LastTime = glfwGetTime(); }
+
+		private:
+			ImGuiID m_DockSpaceID = 0;
+
+		private:
+			Fuse::Menubar m_MenuBar;
+
+			Fuse::Profiler m_Profiler;
+			Fuse::SceneViewport m_SceneView;
+			Fuse::GameViewport m_GameView;
+			Fuse::SceneHierarchy m_SceneHierarchy;
+			Fuse::Resources m_Resources;
+			Fuse::Inspector m_Inspector;
+
+		private:
+			Fuse::Scene m_Scene;
+			Fuse::PanelManager m_PanelManager;
+
+		private:
+			double m_LastTime;
+			double m_FrameTime;
+			int m_FPS;
+	};
+}

@@ -6,11 +6,10 @@
 #include "../../ResourceManager/ResourceManager.h"
 #include "../../Graphics/ShaderProgram/ShaderProgram.h"
 #include "../Framebuffer/Framebuffer.h" 
-#include "../../Camera/Camera.h"
-
+#include "../../EditorCamera/EditorCamera.h"
 #include "../Sprite/Sprite.h"
 
-namespace FuseEngine
+namespace Fuse
 {
 	class Renderer2D
 	{
@@ -26,16 +25,16 @@ namespace FuseEngine
 
 		public:
 			uint32_t GetFramebufferObject() { return m_FrameBuffer.GetFramebufferObject(); }
-			FuseEngine::Framebuffer& GetFramebuffer() { return m_FrameBuffer; }
+			Fuse::Framebuffer& GetFramebuffer() { return m_FrameBuffer; }
+
+			Fuse::EditorCamera& GetCamera() { return m_Camera; }
 
 		private:
-			FuseEngine::Framebuffer m_FrameBuffer;
-			FuseEngine::ShaderProgram m_ShaderProgram;
-			FuseEngine::Camera m_Camera;
+			Fuse::Framebuffer m_FrameBuffer;
+			Fuse::ShaderProgram m_ShaderProgram;
+			Fuse::EditorCamera m_Camera;
 
-			uint32_t m_Background;
-			uint32_t m_Middleground;
-			FuseEngine::Sprite m_BackgroundSprite;
-			FuseEngine::Sprite m_MiddlegroundSprite;
+			uint32_t m_Player;
+			Fuse::Sprite m_PlayerSprite;
 	};
 }

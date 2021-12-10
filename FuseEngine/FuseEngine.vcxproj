@@ -148,9 +148,11 @@
     <ClCompile Include="Engine\Editor\Panels\MenuBar\Menubar.cpp" />
     <ClCompile Include="Engine\Editor\Panels\Resources\Resources.cpp" />
     <ClCompile Include="Engine\Editor\Panels\SceneHierarchy\SceneHeriarchy.cpp" />
+    <ClCompile Include="Engine\Framework\EditorCamera\EditorCamera.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Renderer2D\Renderer2D.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Sprite\Sprite.cpp" />
+    <ClCompile Include="Engine\Framework\Input\Input.cpp" />
     <ClCompile Include="Engine\Framework\Panels\PanelManager\PanelManager.cpp" />
     <ClCompile Include="Engine\Framework\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="Engine\Framework\Scene\Scene.cpp" />
@@ -176,11 +178,12 @@
     <ClInclude Include="Engine\Editor\Panels\MenuBar\Menubar.h" />
     <ClInclude Include="Engine\Editor\Panels\Resources\Resources.h" />
     <ClInclude Include="Engine\Editor\Panels\SceneHierarchy\SceneHierarchy.h" />
-    <ClInclude Include="Engine\Framework\Camera\Camera.h" />
+    <ClInclude Include="Engine\Framework\EditorCamera\EditorCamera.h" />
     <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
     <ClInclude Include="Engine\Framework\Graphics\Shape2D\Shape2D.h" />
     <ClInclude Include="Engine\Framework\Graphics\Renderer2D\Renderer2D.h" />
     <ClInclude Include="Engine\Framework\Graphics\Sprite\Sprite.h" />
+    <ClInclude Include="Engine\Framework\Input\Input.h" />
     <ClInclude Include="Engine\Framework\Panels\BasePanel\BasePanel.h" />
     <ClInclude Include="Engine\Framework\Panels\PanelManager\PanelManager.h" />
     <ClInclude Include="Engine\Framework\ResourceManager\ResourceManager.h" />

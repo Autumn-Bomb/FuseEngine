@@ -1,6 +1,6 @@
 #include "ShaderProgram.h"
 
-FuseEngine::ShaderProgram::ShaderProgram()
+Fuse::ShaderProgram::ShaderProgram()
 {
 	m_FragmentShader = 0;
 	m_VertexShader = 0;
@@ -11,9 +11,9 @@ FuseEngine::ShaderProgram::ShaderProgram()
 	m_FragmentShaderCode = "";
 	m_ComputeShaderCode = "";
 }
-FuseEngine::ShaderProgram::~ShaderProgram() {}
+Fuse::ShaderProgram::~ShaderProgram() {}
 
-void FuseEngine::ShaderProgram::LoadShader(GLuint shaderType, const char* name, const char* shaderPath)
+void Fuse::ShaderProgram::LoadShader(GLuint shaderType, const char* name, const char* shaderPath)
 {
 	std::ifstream shaderFile;
 
@@ -44,7 +44,7 @@ void FuseEngine::ShaderProgram::LoadShader(GLuint shaderType, const char* name, 
 	}
 }
 
-void FuseEngine::ShaderProgram::CreateShader(GLuint shaderType)
+void Fuse::ShaderProgram::CreateShader(GLuint shaderType)
 {
 	if(shaderType == GL_VERTEX_SHADER)
 	{
@@ -81,7 +81,7 @@ void FuseEngine::ShaderProgram::CreateShader(GLuint shaderType)
 	}
 }
 
-void FuseEngine::ShaderProgram::Link()
+void Fuse::ShaderProgram::Link()
 {
 	m_ShaderProgramID = glCreateProgram();
 
@@ -101,12 +101,12 @@ void FuseEngine::ShaderProgram::Link()
 	}
 }
 
-void FuseEngine::ShaderProgram::Use()
+void Fuse::ShaderProgram::Use()
 {
 	glUseProgram(m_ShaderProgramID);
 }
 
-bool FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shaderName)
+bool Fuse::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shaderName)
 {
 	int success;
 	char infoLog[512];
@@ -125,7 +125,7 @@ bool FuseEngine::ShaderProgram::CheckShaderCompilation(GLuint shader, const char
 	}
 }
 
-bool FuseEngine::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
+bool Fuse::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 {
 	int success;
 	char infoLog[512];
@@ -144,22 +144,22 @@ bool FuseEngine::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 	}
 }
 
-void FuseEngine::ShaderProgram::SetBool(const std::string& name, bool value) const
+void Fuse::ShaderProgram::SetBool(const std::string& name, bool value) const
 {
 	glUniform1i(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
 }
 
-void FuseEngine::ShaderProgram::SetInt(const std::string& name, int value) const
+void Fuse::ShaderProgram::SetInt(const std::string& name, int value) const
 {
 	glUniform1i(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
 }
 
-void FuseEngine::ShaderProgram::SetFloat(const std::string& name, float value) const
+void Fuse::ShaderProgram::SetFloat(const std::string& name, float value) const
 {
 	glUniform1f(glGetUniformLocation(m_ShaderProgramID, name.c_str()), value);
 }
 
-void FuseEngine::ShaderProgram::SetUniformMatrix4fv(const char* uniformName, GLsizei count, GLboolean transpose, const GLfloat* value)
+void Fuse::ShaderProgram::SetUniformMatrix4fv(const char* uniformName, GLsizei count, GLboolean transpose, const GLfloat* value)
 {
 	int location = glGetUniformLocation(GetActiveShaderProgram(), uniformName);
 	glUniformMatrix4fv(location , 1, GL_FALSE, value);
