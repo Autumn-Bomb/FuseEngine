@@ -1,9 +1,9 @@
 #pragma once
-#include "../../../Framework/Panels/BasePanel/BasePanel.h"
+#include "../../../Framework/Panels/BasePanel/Panel.h"
 
 namespace Fuse
 {
-	class SceneHierarchy : public Fuse::BasePanel
+	class SceneHierarchy : public Fuse::Panel
 	{
 		public:
 			SceneHierarchy();

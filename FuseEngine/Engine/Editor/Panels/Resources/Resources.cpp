@@ -1,6 +1,10 @@
 #include "Resources.h"
 
-Fuse::Resources::Resources() {}
+Fuse::Resources::Resources()
+{
+	m_ShaderCount = 0;
+	m_TextureCount = 0;
+}
 Fuse::Resources::~Resources() {}
 
 void Fuse::Resources::AddAllResources()
@@ -17,11 +21,6 @@ void Fuse::Resources::OnImGuiRender()
 	if (ImGui::TreeNode("Textures"))
 	{
 		ImGui::Text("Textures Loaded: %i", m_TextureCount);
-		ImGui::TreePop();
-	}
-	if (ImGui::TreeNode("Texture Atlas"))
-	{
-		ImGui::Text("Textures Atlases Loaded: %i", 0);
 		ImGui::TreePop();
 	}
 	if (ImGui::TreeNode("Sounds"))

@@ -4,11 +4,11 @@
 
 namespace Fuse
 {
-	class BasePanel
+	class Panel
 	{
 		public:
-			BasePanel() { m_IsActive = true; }
-			~BasePanel() {}
+			Panel() { m_IsActive = true; }
+			~Panel() {}
 
 		public:
 			virtual void OnImGuiRender() {}

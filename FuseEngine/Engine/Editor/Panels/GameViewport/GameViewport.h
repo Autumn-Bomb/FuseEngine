@@ -1,11 +1,9 @@
 #pragma once
-#include "../../../ImGui/imgui.h"
-#include "../../../Framework/Panels/BasePanel/BasePanel.h"
-#include "../../../Framework/Scene/Scene.h"
+#include "../../../Framework/Panels/BasePanel/Panel.h"
 
 namespace Fuse
 {
-	class GameViewport : public Fuse::BasePanel
+	class GameViewport : public Fuse::Panel
 	{
 		public:
 			GameViewport();
@@ -13,11 +11,5 @@ namespace Fuse
 
 		public:
 			void OnImGuiRender() override;
-
-		public:
-			void SetActiveScene(Fuse::Scene& scene) { m_Scene = scene; }
-
-		private:
-			Fuse::Scene m_Scene;
 	};
 }

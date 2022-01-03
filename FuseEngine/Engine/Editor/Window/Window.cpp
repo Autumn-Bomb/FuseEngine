@@ -10,11 +10,10 @@ Fuse::Window::~Window() {}
 void Fuse::Window::Initialise()
 {
 	InitialiseOpenGL();
-	CreateWindow();
-	InitialiseGLAD();
+	InitialiseWindow();
+	InitialiseGLAD();  
 	InitialiseImGui();
-
-	m_Editor->SetupScene();
+	InitialiseLayers();
 }
 
 void Fuse::Window::InitialiseOpenGL()
@@ -53,7 +52,7 @@ void Fuse::Window::InitialiseImGui()
 	io.ConfigFlags = ImGuiConfigFlags_DockingEnable;
 }
 
-void Fuse::Window::CreateWindow()
+void Fuse::Window::InitialiseWindow()
 {
 	// Create a new GLFW Window with the specified width, height and title
 	m_Window = glfwCreateWindow(m_WindowWidth, m_WindowHeight, m_WindowTitle, NULL, NULL);
@@ -70,6 +69,14 @@ void Fuse::Window::CreateWindow()
 	glfwSetFramebufferSizeCallback(m_Window, FramebufferSizeCallback);
 }
 
+void Fuse::Window::InitialiseLayers()
+{
+	m_InputLayer.InitialiseCallback(m_Window);
+	m_InputLayer.OnCreate();
+
+	m_Layers.emplace_back(m_InputLayer);
+}
+
 void Fuse::Window::MainWindowLoop()
 {
 	while (!glfwWindowShouldClose(m_Window))
@@ -78,8 +85,8 @@ void Fuse::Window::MainWindowLoop()
 
 		// Input
 		ProcessInput();
-		m_Editor->ProcessInput(m_Window);
-		
+		m_InputLayer.OnUpdate();
+
 		// Rendering
 		Render();
 
@@ -87,6 +94,10 @@ void Fuse::Window::MainWindowLoop()
 		glfwSwapBuffers(m_Window);
 		glfwPollEvents();
 	}
+
+	
+	// Destroy Layers
+	m_InputLayer.OnDestroy();
 
 	// Shutdown ImGui and destroy the GLFW window, then terminate GLFW altogether
 	ImGui_ImplOpenGL3_Shutdown();
@@ -117,6 +128,8 @@ void Fuse::Window::ProcessInput()
 	{
 		glfwSetWindowShouldClose(m_Window, true);
 	}
+
+	m_Editor->ProcessInput(m_Window);
 }
 
 void Fuse::Window::FramebufferSizeCallback(GLFWwindow* window, int width, int height)

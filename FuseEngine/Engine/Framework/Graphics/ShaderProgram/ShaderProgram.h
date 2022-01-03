@@ -6,7 +6,6 @@
 
 #include <vector>
 #include <sstream>
-#include <iostream>
 #include <chrono>
 #include <iomanip>
 #include <fstream>
@@ -21,8 +20,8 @@ namespace Fuse
 			~ShaderProgram();
 
 		public:
-			void LoadShader(GLuint shaderType, const char* name, const char* path);
-			void CreateShader(GLuint shaderType);
+			void LoadShader(const char* shaderName, GLuint shaderType, const char* path);
+			void CreateShader(const char* shaderName, GLuint shaderType);
 			void Link();
 			void Use();
 
@@ -37,7 +36,8 @@ namespace Fuse
 			void SetUniformMatrix4fv(const char* uniformName, GLsizei count, GLboolean transpose, const GLfloat* value);
 
 		public:
-			uint32_t GetActiveShaderProgram() { return m_ShaderProgramID; }
+			GLuint GetActiveShaderProgram() { return m_ShaderProgramID; }
+			size_t GetShadersLoaded() { return m_Shaders.size(); }
 
 		private:
 			std::vector<uint32_t> m_Shaders;

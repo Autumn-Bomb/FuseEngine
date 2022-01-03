@@ -10,9 +10,5 @@ void Fuse::SceneViewport::OnImGuiRender()
 	// Render ImGui Texture here with FBO
 	ImVec2 vWindowSize = ImGui::GetWindowSize();
 
-	m_Scene.GetRenderer().GetFramebuffer().Resize(vWindowSize.x, vWindowSize.y);
-	ImGui::Image((uint32_t*)m_Scene.GetRenderer().GetFramebufferObject(), ImVec2(vWindowSize.x, vWindowSize.y));
-	//m_Scene.GetRenderer().GetCamera().ResizeCamera(vWindowSize.x, vWindowSize.y);
-
 	ImGui::End();
 }

@@ -1,9 +1,9 @@
 #pragma once
-#include "../../../Framework/Panels/BasePanel/BasePanel.h"
+#include "../../../Framework/Panels/BasePanel/Panel.h"
 
 namespace Fuse
 {
-	class Inspector : public Fuse::BasePanel
+	class Inspector : public Fuse::Panel
 	{
 		public:
 			Inspector();

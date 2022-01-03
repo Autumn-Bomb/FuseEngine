@@ -24,7 +24,7 @@ namespace Fuse
 			bool SetIsEnabled(bool enabled) { m_IsEnabled = enabled; }
 				
 		public:
-			static void Initialise(GLFWwindow* window);
+			static void InitialiseCallback(GLFWwindow* window);
 
 		private:
 			std::map<int, bool> m_Keys;

@@ -1,5 +1,5 @@
 #pragma once
-#include "../BasePanel/BasePanel.h"
+#include "../BasePanel/Panel.h"
 
 #include "../../../Editor/Panels/Profiler/Profiler.h"
 #include "../../../Editor/Panels/SceneViewport/SceneViewport.h"
@@ -22,10 +22,10 @@ namespace Fuse
 			void RenderActivePanels();
 
 		public:
-			void AddPanel(const char* name, Fuse::BasePanel* panel);
+			void AddPanel(const char* name, Fuse::Panel* panel);
 
 		public:
-			Fuse::BasePanel* GetPanel(const char* name)
+			Fuse::Panel* GetPanel(const char* name)
 			{
 				auto pairFound = m_Panels.find(name);
 
@@ -36,6 +36,6 @@ namespace Fuse
 			}
 
 		private:
-			std::unordered_map<std::string, Fuse::BasePanel*> m_Panels;
+			std::unordered_map<std::string, Fuse::Panel*> m_Panels;
 	};
 }

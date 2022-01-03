@@ -6,8 +6,9 @@
 #include "../../ResourceManager/ResourceManager.h"
 #include "../../Graphics/ShaderProgram/ShaderProgram.h"
 #include "../Framebuffer/Framebuffer.h" 
-#include "../../EditorCamera/EditorCamera.h"
 #include "../Sprite/Sprite.h"
+
+#include <glfw3.h>
 
 namespace Fuse
 {
@@ -18,21 +19,24 @@ namespace Fuse
 			~Renderer2D();
 
 		public:
-			void InitialiseRenderer();
+			void InitialiseRenderer(Fuse::ShaderProgram& shaderProgram);
 
 		public:
-			void Render();
+			void Bind();
+			void DrawQuad(Fuse::Sprite& sprite, uint32_t texture, glm::vec3 position, glm::vec3 size, float rotation, glm::vec4 colour);
+			void Unbind();
 
 		public:
 			uint32_t GetFramebufferObject() { return m_FrameBuffer.GetFramebufferObject(); }
-			Fuse::Framebuffer& GetFramebuffer() { return m_FrameBuffer; }
+			Fuse::Framebuffer& GetFramebuffer() { return m_FrameBuffer; }			 
 
-			Fuse::EditorCamera& GetCamera() { return m_Camera; }
+		public:
+			static int m_DrawCalls;
+			static int GetDrawcalls() { return m_DrawCalls; }
 
 		private:
 			Fuse::Framebuffer m_FrameBuffer;
 			Fuse::ShaderProgram m_ShaderProgram;
-			Fuse::EditorCamera m_Camera;
 
 			uint32_t m_Player;
 			Fuse::Sprite m_PlayerSprite;

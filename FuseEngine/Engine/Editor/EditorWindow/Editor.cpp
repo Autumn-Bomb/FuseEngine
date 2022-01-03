@@ -17,17 +17,7 @@ Fuse::Editor::~Editor() {}
 
 void Fuse::Editor::ProcessInput(GLFWwindow* window)
 {
-	// Handle any key input
-}
 
-void Fuse::Editor::SetupScene()
-{
-	m_Scene.Initialise();
-
-	m_SceneView.SetActiveScene(m_Scene);
-	m_GameView.SetActiveScene(m_Scene);
-
-	m_Resources.AddAllResources();
 }
 
 void Fuse::Editor::RenderEditor()
@@ -49,8 +39,6 @@ void Fuse::Editor::RenderEditor()
 	RenderActivePanels();
 
 	m_MenuBar.OnImGuiRender();
-	m_Scene.Update();
-	m_Scene.Render();
 
 	ImGui::End();
 }

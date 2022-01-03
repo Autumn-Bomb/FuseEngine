@@ -1,7 +1,7 @@
 #include "ResourceManager.h"
 
 int Fuse::ResourceManager::m_TextureCount = 0;
-int Fuse::ResourceManager::m_ShaderCount = 0;
+Fuse::ShaderProgram	Fuse::ResourceManager::m_ShaderProgram;
 
 Fuse::ResourceManager::ResourceManager() {}
 Fuse::ResourceManager::~ResourceManager() {}
@@ -58,4 +58,9 @@ uint32_t Fuse::ResourceManager::LoadTexture(const char* path)
 	}
 
 	return textureID;
+}
+
+void Fuse::ResourceManager::LoadShader(const char* shaderName, GLuint shaderType, const char* shaderPath)
+{
+	m_ShaderProgram.LoadShader(shaderName, shaderType, shaderPath);
 }

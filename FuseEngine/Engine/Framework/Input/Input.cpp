@@ -17,7 +17,7 @@ Fuse::Input::~Input()
 	m_Instances.erase(std::remove(m_Instances.begin(), m_Instances.end(), this), m_Instances.end());
 }
 
-void Fuse::Input::Initialise(GLFWwindow* window)
+void Fuse::Input::InitialiseCallback(GLFWwindow* window)
 {
 	glfwSetKeyCallback(window, Input::Callback);
 }
@@ -45,7 +45,7 @@ void Fuse::Input::SetKeyDown(int key, bool status)
 	if (it != m_Keys.end())
 	{
 		m_Keys[key] = status;
-		std::cout << "Key: " << std::to_string(key).c_str() << " has been set to: " << std::to_string(status) << std::endl;
+		std::cout << "Key: " << std::to_string(key).c_str() << " has been set to: " << std::to_string(status).c_str() << std::endl;
 	}
 }
 

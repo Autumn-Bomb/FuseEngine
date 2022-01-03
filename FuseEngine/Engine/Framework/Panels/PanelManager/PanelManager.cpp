@@ -3,7 +3,7 @@
 Fuse::PanelManager::PanelManager() {}
 Fuse::PanelManager::~PanelManager() {}
 
-void Fuse::PanelManager::AddPanel(const char* name, Fuse::BasePanel* panel)
+void Fuse::PanelManager::AddPanel(const char* name, Fuse::Panel* panel)
 {
 	m_Panels[name] = panel; 
 }

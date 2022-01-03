@@ -1,4 +1,5 @@
 #include "Profiler.h"
+#include "../../../Framework/Graphics/Renderer2D/Renderer2D.h"
 
 Fuse::Profiler::Profiler()
 {
@@ -34,7 +35,7 @@ void Fuse::Profiler::OnImGuiRender()
 	if (ImGui::CollapsingHeader("RENDERING STATS"), ImGuiTreeNodeFlags_DefaultOpen)
 	{
 		ImGui::Text("Entities: %i", 0);
-		ImGui::Text("Draw Calls: %i", m_Drawcalls);
+		ImGui::Text("Draw Calls: %i", Fuse::Renderer2D::GetDrawcalls());
 		ImGui::Text("Vertices: %i", 0);
 		ImGui::Text("Indices: %i", 0);
 	}

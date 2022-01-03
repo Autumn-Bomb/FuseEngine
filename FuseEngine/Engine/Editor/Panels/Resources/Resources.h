@@ -1,10 +1,10 @@
 #pragma once
-#include "../../../Framework/Panels/BasePanel/BasePanel.h"
+#include "../../../Framework/Panels/BasePanel/Panel.h"
 #include "../../../Framework/ResourceManager/ResourceManager.h"
 
 namespace Fuse
 {
-	class Resources : public Fuse::BasePanel
+	class Resources : public Fuse::Panel
 	{
 		public:
 			Resources();
@@ -15,7 +15,7 @@ namespace Fuse
 			void AddAllResources();
 
 		private:
-			int m_TextureCount;
-			int m_ShaderCount;
+			size_t m_TextureCount;
+			size_t m_ShaderCount;
 	};
 }

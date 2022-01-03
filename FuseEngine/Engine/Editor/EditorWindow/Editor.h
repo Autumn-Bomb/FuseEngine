@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../../Framework/Panels/PanelManager/PanelManager.h"
+#include "../../Framework/Scenes/SceneManager/SceneManager.h"
 #include "../Panels/MenuBar/Menubar.h"
-#include "../../Framework/Scene/Scene.h"
 
 #include <glfw3.h>
 
@@ -19,8 +19,6 @@ namespace Fuse
 
 			void RenderActivePanels();
 			void HandlePanelDocking();
-
-			void SetupScene();
 
 		public:
 			void ProcessInput(GLFWwindow* window);
@@ -41,7 +39,7 @@ namespace Fuse
 			Fuse::Inspector m_Inspector;
 
 		private:
-			Fuse::Scene m_Scene;
+			Fuse::SceneManager m_SceneManager;
 			Fuse::PanelManager m_PanelManager;
 
 		private:

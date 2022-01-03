@@ -6,7 +6,7 @@
 #include "../../../ImGui/imgui_impl_glfw.h"
 
 #include "../EditorWindow/Editor.h"
-#include "../../Framework/Input/Input.h"
+#include "../../Framework/Layers/InputLayer/InputLayer.h"
 
 #include <string>
 #include <iostream>
@@ -19,6 +19,7 @@ namespace Fuse
 			Window();
 			Window(Fuse::Editor& editor)
 			{
+				m_Window = nullptr;
 				m_Editor = &editor;
 			}
 			~Window();
@@ -27,7 +28,8 @@ namespace Fuse
 			void Initialise();
 			void InitialiseOpenGL();
 			void InitialiseGLAD();
-			void CreateWindow();
+			void InitialiseWindow();
+			void InitialiseLayers();
 			void MainWindowLoop();
 			void ProcessInput();
 
@@ -46,11 +48,15 @@ namespace Fuse
 		private:
 			uint32_t m_WindowWidth = 1920;
 			uint32_t m_WindowHeight = 1080;
-			const char* m_WindowTitle = "Fuse Engine";
+			const char* m_WindowTitle = "Fuse";
 			const char* m_GLSLVersion = "#version 460";
 
 		private:
+			Fuse::InputLayer m_InputLayer;
 			Fuse::Editor* m_Editor;
 			GLFWwindow* m_Window;
+
+		private:
+			std::vector<Fuse::Layer> m_Layers;
 	};
 }

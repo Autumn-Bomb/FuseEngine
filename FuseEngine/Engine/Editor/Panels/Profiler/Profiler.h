@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../../../Framework/Panels/BasePanel/BasePanel.h"
+#include "../../../Framework/Panels/BasePanel/Panel.h"
 
 #include <iostream>
 
 namespace Fuse
 {
-	class Profiler : public Fuse::BasePanel
+	class Profiler : public Fuse::Panel
 	{
 		public:
 			Profiler();

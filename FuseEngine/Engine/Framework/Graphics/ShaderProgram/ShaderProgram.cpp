@@ -13,7 +13,7 @@ Fuse::ShaderProgram::ShaderProgram()
 }
 Fuse::ShaderProgram::~ShaderProgram() {}
 
-void Fuse::ShaderProgram::LoadShader(GLuint shaderType, const char* name, const char* shaderPath)
+void Fuse::ShaderProgram::LoadShader(const char* shaderName, GLuint shaderType, const char* shaderPath)
 {
 	std::ifstream shaderFile;
 
@@ -36,7 +36,7 @@ void Fuse::ShaderProgram::LoadShader(GLuint shaderType, const char* name, const 
 		}
 
 		shaderFile.close();
-		CreateShader(shaderType);
+		CreateShader(shaderName, shaderType);
 	}
 	catch (std::ofstream::failure e)
 	{
@@ -44,40 +44,46 @@ void Fuse::ShaderProgram::LoadShader(GLuint shaderType, const char* name, const 
 	}
 }
 
-void Fuse::ShaderProgram::CreateShader(GLuint shaderType)
+void Fuse::ShaderProgram::CreateShader(const char* shaderName, GLuint shaderType)
 {
-	if(shaderType == GL_VERTEX_SHADER)
+	switch (shaderType)
 	{
-		m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
-		glShaderSource(m_VertexShader, 1, &m_VertexShaderCode, NULL);
-		glCompileShader(m_VertexShader);
-		
-		if (CheckShaderCompilation(m_VertexShader, "VERTEX"))
+		case GL_VERTEX_SHADER:
 		{
-			m_Shaders.emplace_back(m_VertexShader);
-		}
-	}
-	else if(shaderType == GL_FRAGMENT_SHADER)
-	{
-		m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-		glShaderSource(m_FragmentShader, 1, &m_FragmentShaderCode, NULL);
-		glCompileShader(m_FragmentShader);
-		
-		if (CheckShaderCompilation(m_FragmentShader, "FRAGMENT"))
-		{
-			m_Shaders.emplace_back(m_FragmentShader);
-		}
-	}
-	else if(shaderType == GL_COMPUTE_SHADER)
-	{ 
-		m_ComputeShader = glCreateShader(GL_COMPUTE_SHADER);
-		glShaderSource(m_ComputeShader, 1, &m_ComputeShaderCode, NULL);
-		glCompileShader(m_ComputeShader);
+			m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
+			glShaderSource(m_VertexShader, 1, &m_VertexShaderCode, NULL);
+			glCompileShader(m_VertexShader);
 
-		if (CheckShaderCompilation(m_ComputeShader, "COMPUTE"))
-		{
-			m_Shaders.emplace_back(m_ComputeShader);
+			if (CheckShaderCompilation(m_VertexShader, shaderName))
+			{
+				m_Shaders.emplace_back(m_VertexShader);
+			}
 		}
+			break;	
+		case GL_FRAGMENT_SHADER:
+		{
+			m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+			glShaderSource(m_FragmentShader, 1, &m_FragmentShaderCode, NULL);
+			glCompileShader(m_FragmentShader);
+
+			if (CheckShaderCompilation(m_FragmentShader, shaderName))
+			{
+				m_Shaders.emplace_back(m_FragmentShader);
+			}
+		}
+			break;
+		case GL_COMPUTE_SHADER:
+		{
+			m_ComputeShader = glCreateShader(GL_COMPUTE_SHADER);
+			glShaderSource(m_ComputeShader, 1, &m_ComputeShaderCode, NULL);
+			glCompileShader(m_ComputeShader);
+
+			if (CheckShaderCompilation(m_ComputeShader, shaderName))
+			{
+				m_Shaders.emplace_back(m_ComputeShader);
+			}
+		}
+			break;
 	}
 }
 
@@ -119,7 +125,7 @@ bool Fuse::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shad
 		return false;
 	}
 	else
-	{ 
+	{
 		std::cout << "SUCCESS::SHADER::COMPILATION_COMPLETED::" << shaderName << std::endl;
 		return true;
 	}
@@ -161,6 +167,6 @@ void Fuse::ShaderProgram::SetFloat(const std::string& name, float value) const
 
 void Fuse::ShaderProgram::SetUniformMatrix4fv(const char* uniformName, GLsizei count, GLboolean transpose, const GLfloat* value)
 {
-	int location = glGetUniformLocation(GetActiveShaderProgram(), uniformName);
+	GLuint location = glGetUniformLocation(GetActiveShaderProgram(), uniformName);
 	glUniformMatrix4fv(location , 1, GL_FALSE, value);
 }

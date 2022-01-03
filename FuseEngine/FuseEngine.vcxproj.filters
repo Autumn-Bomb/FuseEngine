@@ -43,9 +43,6 @@
     <ClCompile Include="Engine\Editor\Panels\SceneViewport\SceneViewport.cpp">
       <Filter>src\Editor\Panels\SceneViewport</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Framework\Scene\Scene.cpp">
-      <Filter>src\Framework\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.cpp" />
     <ClCompile Include="Engine\Editor\Panels\GameViewport\GameViewport.cpp" />
     <ClCompile Include="Engine\Editor\Panels\MenuBar\Menubar.cpp" />
@@ -58,7 +55,6 @@
     <ClCompile Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="Engine\Framework\Input\Input.cpp" />
-    <ClCompile Include="Engine\Framework\EditorCamera\EditorCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -97,7 +93,7 @@
     <ClInclude Include="Engine\Editor\Panels\Profiler\Profiler.h">
       <Filter>src\Editor\Panels\Stats</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Framework\Panels\BasePanel\BasePanel.h">
+    <ClInclude Include="Engine\Framework\Panels\BasePanel\Panel.h">
       <Filter>src\Framework\Panels\BasePanel</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Framework\Panels\PanelManager\PanelManager.h">
@@ -105,9 +101,6 @@
     </ClInclude>
     <ClInclude Include="Engine\Editor\Panels\SceneViewport\SceneViewport.h">
       <Filter>src\Editor\Panels\SceneViewport</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Framework\Scene\Scene.h">
-      <Filter>src\Framework\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.h" />
     <ClInclude Include="Engine\Editor\Panels\GameViewport\GameViewport.h" />
@@ -162,9 +155,15 @@
     <ClInclude Include="Engine\Framework\Graphics\Shape2D\Shape2D.h" />
     <ClInclude Include="Engine\Editor\Panels\Inspector\Inspector.h" />
     <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
-    <ClInclude Include="Engine\Framework\EditorCamera\EditorCamera.h" />
     <ClInclude Include="Engine\Framework\Graphics\Sprite\Sprite.h" />
     <ClInclude Include="Engine\Framework\Input\Input.h" />
+    <ClInclude Include="Engine\Framework\ECS\Components\Components.h" />
+    <ClInclude Include="Engine\Framework\ECS\Entity\Entity.h" />
+    <ClInclude Include="Engine\Framework\Layers\BaseLayer\BaseLayer.h" />
+    <ClInclude Include="Engine\Framework\Scenes\BaseScene\Scene.h" />
+    <ClInclude Include="Engine\Framework\Scenes\SceneManager\SceneManager.h" />
+    <ClInclude Include="Engine\Framework\Scenes\TestScene\TestScene.h" />
+    <ClInclude Include="Engine\Framework\Layers\InputLayer\InputLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">
