@@ -7,6 +7,7 @@
 #include "../../../Editor/Panels/SceneHierarchy/SceneHierarchy.h"
 #include "../../../Editor/Panels/Resources/Resources.h"
 #include "../../../Editor/Panels/Inspector/Inspector.h"
+#include "../../../Editor/Panels/Console/Console.h"
 
 #include <unordered_map>
 

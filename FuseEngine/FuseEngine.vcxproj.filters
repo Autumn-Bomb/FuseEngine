@@ -55,6 +55,7 @@
     <ClCompile Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="Engine\Framework\Input\Input.cpp" />
+    <ClCompile Include="Engine\Editor\Panels\Console\Console.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -160,10 +161,8 @@
     <ClInclude Include="Engine\Framework\ECS\Components\Components.h" />
     <ClInclude Include="Engine\Framework\ECS\Entity\Entity.h" />
     <ClInclude Include="Engine\Framework\Layers\BaseLayer\BaseLayer.h" />
-    <ClInclude Include="Engine\Framework\Scenes\BaseScene\Scene.h" />
-    <ClInclude Include="Engine\Framework\Scenes\SceneManager\SceneManager.h" />
-    <ClInclude Include="Engine\Framework\Scenes\TestScene\TestScene.h" />
     <ClInclude Include="Engine\Framework\Layers\InputLayer\InputLayer.h" />
+    <ClInclude Include="Engine\Editor\Panels\Console\Console.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

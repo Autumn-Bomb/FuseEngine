@@ -37,7 +37,7 @@ namespace Fuse
 			{
 				if (m_Input->GetKeyDown('W'))
 				{
-					PrintKeyPressed('W');
+					std::cout << "Input Layer[Key Pressed]: W" << std::endl;
 				}
 			}
 

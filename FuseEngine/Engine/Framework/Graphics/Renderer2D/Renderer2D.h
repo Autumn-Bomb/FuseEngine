@@ -23,7 +23,8 @@ namespace Fuse
 
 		public:
 			void Bind();
-			void DrawQuad(Fuse::Sprite& sprite, uint32_t texture, glm::vec3 position, glm::vec3 size, float rotation, glm::vec4 colour);
+			void DrawSprite(Fuse::Sprite& sprite, uint32_t texture, glm::vec3 position, glm::vec3 size, float rotation, glm::vec4 colour);
+			void DrawSpriteBatched(Fuse::Sprite& sprite, uint32_t originTexture, int x, int y, int width, int height, glm::vec3 position, glm::vec3 size, float rotation, glm::vec4 colour);
 			void Unbind();
 
 		public:
@@ -37,8 +38,5 @@ namespace Fuse
 		private:
 			Fuse::Framebuffer m_FrameBuffer;
 			Fuse::ShaderProgram m_ShaderProgram;
-
-			uint32_t m_Player;
-			Fuse::Sprite m_PlayerSprite;
 	};
 }

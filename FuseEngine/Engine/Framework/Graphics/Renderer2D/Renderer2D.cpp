@@ -18,10 +18,16 @@ void Fuse::Renderer2D::Bind()
 	m_FrameBuffer.Bind();
 }
 
-void Fuse::Renderer2D::DrawQuad(Fuse::Sprite& sprite, uint32_t texture, glm::vec3 position, glm::vec3 size, float rotation, glm::vec4 colour)
+void Fuse::Renderer2D::DrawSprite(Fuse::Sprite& sprite, uint32_t texture, glm::vec3 position, glm::vec3 size, float rotation, glm::vec4 colour)
 {
 	sprite.Render(texture, position, size, rotation, colour);
 	++m_DrawCalls;     
+}
+
+void Fuse::Renderer2D::DrawSpriteBatched(Fuse::Sprite& sprite, uint32_t originTexture, int x, int y, int width, int height, glm::vec3 position, glm::vec3 size, float rotation, glm::vec4 colour)
+{
+
+	++m_DrawCalls;
 }
 
 void Fuse::Renderer2D::Unbind()

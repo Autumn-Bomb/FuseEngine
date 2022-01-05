@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../../Framework/Panels/PanelManager/PanelManager.h"
-#include "../../Framework/Scenes/SceneManager/SceneManager.h"
 #include "../Panels/MenuBar/Menubar.h"
 
 #include <glfw3.h>
@@ -37,9 +36,9 @@ namespace Fuse
 			Fuse::SceneHierarchy m_SceneHierarchy;
 			Fuse::Resources m_Resources;
 			Fuse::Inspector m_Inspector;
+			Fuse::Console m_Console;
 
 		private:
-			Fuse::SceneManager m_SceneManager;
 			Fuse::PanelManager m_PanelManager;
 
 		private:

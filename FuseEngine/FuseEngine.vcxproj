@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Editor\EditorWindow\Editor.cpp" />
+    <ClCompile Include="Engine\Editor\Panels\Console\Console.cpp" />
     <ClCompile Include="Engine\Editor\Panels\Inspector\Inspector.cpp" />
     <ClCompile Include="Engine\Editor\Panels\MenuBar\Menubar.cpp" />
     <ClCompile Include="Engine\Editor\Panels\Resources\Resources.cpp" />
@@ -172,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Editor\EditorWindow\Editor.h" />
+    <ClInclude Include="Engine\Editor\Panels\Console\Console.h" />
     <ClInclude Include="Engine\Editor\Panels\Inspector\Inspector.h" />
     <ClInclude Include="Engine\Editor\Panels\MenuBar\Menubar.h" />
     <ClInclude Include="Engine\Editor\Panels\Resources\Resources.h" />
@@ -193,9 +195,6 @@
     <ClInclude Include="Engine\Editor\Panels\SceneViewport\SceneViewport.h" />
     <ClInclude Include="Engine\Editor\Panels\Profiler\Profiler.h" />
     <ClInclude Include="Engine\Editor\Window\Window.h" />
-    <ClInclude Include="Engine\Framework\Scenes\BaseScene\Scene.h" />
-    <ClInclude Include="Engine\Framework\Scenes\SceneManager\SceneManager.h" />
-    <ClInclude Include="Engine\Framework\Scenes\TestScene\TestScene.h" />
     <ClInclude Include="Engine\Framework\Timer\Timer.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />

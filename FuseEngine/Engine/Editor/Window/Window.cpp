@@ -20,9 +20,6 @@ void Fuse::Window::InitialiseOpenGL()
 {
 	// Initialise GLFW
 	glfwInit();
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 }
 
 void Fuse::Window::InitialiseGLAD()
@@ -81,11 +78,11 @@ void Fuse::Window::MainWindowLoop()
 {
 	while (!glfwWindowShouldClose(m_Window))
 	{
+		// Calculate the FPS for the application
 		m_Editor->CalculateFPSFrametime();
 
 		// Input
 		ProcessInput();
-		m_InputLayer.OnUpdate();
 
 		// Rendering
 		Render();
@@ -94,7 +91,6 @@ void Fuse::Window::MainWindowLoop()
 		glfwSwapBuffers(m_Window);
 		glfwPollEvents();
 	}
-
 	
 	// Destroy Layers
 	m_InputLayer.OnDestroy();
@@ -130,6 +126,7 @@ void Fuse::Window::ProcessInput()
 	}
 
 	m_Editor->ProcessInput(m_Window);
+	m_InputLayer.OnUpdate();
 }
 
 void Fuse::Window::FramebufferSizeCallback(GLFWwindow* window, int width, int height)

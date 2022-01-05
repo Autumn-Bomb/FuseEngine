@@ -8,17 +8,20 @@ Fuse::Editor::Editor()
 
 	m_PanelManager.AddPanel("Stats", &m_Profiler);
 	m_PanelManager.AddPanel("Scene View", &m_SceneView);
-	//m_PanelManager.AddPanel("Game View", &m_GameView);
+	m_PanelManager.AddPanel("Game View", &m_GameView);
 	m_PanelManager.AddPanel("Scene Hierarchy", &m_SceneHierarchy);
 	m_PanelManager.AddPanel("Resources", &m_Resources);
 	m_PanelManager.AddPanel("Inspector", &m_Inspector);
+	m_PanelManager.AddPanel("Console", &m_Console);
+
+	Fuse::Console::PrintToConsole(MessageType::ERROR, "This is an Error");
+	Fuse::Console::PrintToConsole(MessageType::ACTION, "This is an Action");
+	Fuse::Console::PrintToConsole(MessageType::MESSAGE, "This is a Message");
+	Fuse::Console::PrintToConsole(MessageType::WARNING, "This is a Warning");
 }
 Fuse::Editor::~Editor() {}
 
-void Fuse::Editor::ProcessInput(GLFWwindow* window)
-{
-
-}
+void Fuse::Editor::ProcessInput(GLFWwindow* window) { }
 
 void Fuse::Editor::RenderEditor()
 {

@@ -40,7 +40,6 @@ void Fuse::Sprite::Render(uint32_t texture, glm::vec2 position, glm::vec2 size, 
 	m_Transform = glm::scale(m_Transform, glm::vec3(size.x, size.y, 1.0f));
 
 	m_ShaderProgram.Use();
-
 	m_ShaderProgram.SetUniformMatrix4fv("transform", 1, GL_FALSE, glm::value_ptr(m_Transform));
 
 	glBindVertexArray(m_QuadVAO);
