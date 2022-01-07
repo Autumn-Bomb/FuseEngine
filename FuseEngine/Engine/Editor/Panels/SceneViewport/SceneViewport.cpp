@@ -1,6 +1,9 @@
 #include "SceneViewport.h"
 
-Fuse::SceneViewport::SceneViewport() {}
+Fuse::SceneViewport::SceneViewport()
+{
+	m_Scene = new Fuse::TestScene();
+}
 Fuse::SceneViewport::~SceneViewport() {}
 
 void Fuse::SceneViewport::OnImGuiRender()
@@ -9,6 +12,6 @@ void Fuse::SceneViewport::OnImGuiRender()
 
 	// Render ImGui Texture here with FBO
 	ImVec2 vWindowSize = ImGui::GetWindowSize();
-
+	ImGui::Image((ImTextureID)m_Scene->GetRenderer().GetFramebufferObject(), vWindowSize);
 	ImGui::End();
 }

@@ -3,25 +3,38 @@
 Fuse::Editor::Editor()
 {
 	m_FPS = 0;
+
+	m_CurrentTime = 0;
 	m_FrameTime = 0;
 	m_LastTime = 0;
 
 	m_PanelManager.AddPanel("Stats", &m_Profiler);
 	m_PanelManager.AddPanel("Scene View", &m_SceneView);
-	m_PanelManager.AddPanel("Game View", &m_GameView);
+	//m_PanelManager.AddPanel("Game View", &m_GameView);
 	m_PanelManager.AddPanel("Scene Hierarchy", &m_SceneHierarchy);
 	m_PanelManager.AddPanel("Resources", &m_Resources);
 	m_PanelManager.AddPanel("Inspector", &m_Inspector);
 	m_PanelManager.AddPanel("Console", &m_Console);
-
-	Fuse::Console::PrintToConsole(MessageType::ERROR, "This is an Error");
-	Fuse::Console::PrintToConsole(MessageType::ACTION, "This is an Action");
-	Fuse::Console::PrintToConsole(MessageType::MESSAGE, "This is a Message");
-	Fuse::Console::PrintToConsole(MessageType::WARNING, "This is a Warning");
 }
 Fuse::Editor::~Editor() {}
 
 void Fuse::Editor::ProcessInput(GLFWwindow* window) { }
+
+void Fuse::Editor::SetupScene()
+{
+	m_Scene = Fuse::TestScene("Game Scene");
+	m_Scene.InitialiseScene();
+	Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, "Scene Initialised");
+
+	m_SceneView.SetActiveScene(m_Scene);
+
+	std::string message = "Active Scene Rendered: ";
+	message.append(m_Scene.GetSceneName());
+
+	Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, message.c_str());
+
+	m_Resources.AddAllResources();
+}
 
 void Fuse::Editor::RenderEditor()
 {
@@ -39,8 +52,10 @@ void Fuse::Editor::RenderEditor()
 	ImGui::PopStyleVar();
 
 	HandlePanelDocking();
-	RenderActivePanels();
 
+	m_Scene.Render();
+
+	RenderActivePanels();
 	m_MenuBar.OnImGuiRender();
 
 	ImGui::End();
@@ -59,10 +74,10 @@ void Fuse::Editor::HandlePanelDocking()
 
 void Fuse::Editor::CalculateFPSFrametime()
 {
-	double currentTime = glfwGetTime();
+	m_CurrentTime = glfwGetTime();
 	m_FPS++;
 
-	if (currentTime - m_LastTime >= 1.0)
+	if (m_CurrentTime - m_LastTime >= 1.0)
 	{
 		m_Profiler.SetFPS(m_FPS);
 
@@ -71,6 +86,6 @@ void Fuse::Editor::CalculateFPSFrametime()
 
 		m_FPS = 0;
 		m_FrameTime = 0;
-		m_LastTime = currentTime;
+		m_LastTime = m_CurrentTime;
 	}
 }

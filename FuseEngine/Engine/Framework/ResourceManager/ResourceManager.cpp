@@ -1,7 +1,6 @@
 #include "ResourceManager.h"
 
 int Fuse::ResourceManager::m_TextureCount = 0;
-Fuse::ShaderProgram	Fuse::ResourceManager::m_ShaderProgram;
 
 Fuse::ResourceManager::ResourceManager() {}
 Fuse::ResourceManager::~ResourceManager() {}

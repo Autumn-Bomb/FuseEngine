@@ -14,6 +14,8 @@ void Fuse::Window::Initialise()
 	InitialiseGLAD();  
 	InitialiseImGui();
 	InitialiseLayers();
+
+	m_Editor->SetupScene();
 }
 
 void Fuse::Window::InitialiseOpenGL()
@@ -40,12 +42,12 @@ void Fuse::Window::InitialiseImGui()
 	// Initalise ImGui
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO();
 	ImGui_ImplGlfw_InitForOpenGL(m_Window, true);
 	ImGui_ImplOpenGL3_Init(m_GLSLVersion);
 	ImGui::StyleColorsDark();
 
-	// Enable docking for ImGui Windows
+	// Enable docking for ImGui Window
+	ImGuiIO& io = ImGui::GetIO();
 	io.ConfigFlags = ImGuiConfigFlags_DockingEnable;
 }
 
@@ -53,7 +55,7 @@ void Fuse::Window::InitialiseWindow()
 {
 	// Create a new GLFW Window with the specified width, height and title
 	m_Window = glfwCreateWindow(m_WindowWidth, m_WindowHeight, m_WindowTitle, NULL, NULL);
-
+	
 	// If the window failed to initialise
 	if (m_Window == NULL)
 	{
@@ -63,6 +65,8 @@ void Fuse::Window::InitialiseWindow()
 	}
 
 	glfwMakeContextCurrent(m_Window);
+	glfwSwapInterval(0);
+
 	glfwSetFramebufferSizeCallback(m_Window, FramebufferSizeCallback);
 }
 

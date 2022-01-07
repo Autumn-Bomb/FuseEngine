@@ -1,5 +1,6 @@
 #pragma once
 #include "glad.h"
+#include "../../../Editor/Panels/Console/Console.h"
 
 #include <iostream>
 #include <unordered_map>

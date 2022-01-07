@@ -151,7 +151,6 @@
     <ClCompile Include="Engine\Editor\Panels\SceneHierarchy\SceneHeriarchy.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Renderer2D\Renderer2D.cpp" />
-    <ClCompile Include="Engine\Framework\Graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="Engine\Framework\Input\Input.cpp" />
     <ClCompile Include="Engine\Framework\Panels\PanelManager\PanelManager.cpp" />
     <ClCompile Include="Engine\Framework\ResourceManager\ResourceManager.cpp" />
@@ -183,7 +182,6 @@
     <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
     <ClInclude Include="Engine\Framework\Graphics\Shape2D\Shape2D.h" />
     <ClInclude Include="Engine\Framework\Graphics\Renderer2D\Renderer2D.h" />
-    <ClInclude Include="Engine\Framework\Graphics\Sprite\Sprite.h" />
     <ClInclude Include="Engine\Framework\Input\Input.h" />
     <ClInclude Include="Engine\Framework\Layers\BaseLayer\BaseLayer.h" />
     <ClInclude Include="Engine\Framework\Layers\InputLayer\InputLayer.h" />
@@ -195,6 +193,7 @@
     <ClInclude Include="Engine\Editor\Panels\SceneViewport\SceneViewport.h" />
     <ClInclude Include="Engine\Editor\Panels\Profiler\Profiler.h" />
     <ClInclude Include="Engine\Editor\Window\Window.h" />
+    <ClInclude Include="Engine\Framework\TestScene\TestScene.h" />
     <ClInclude Include="Engine\Framework\Timer\Timer.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />

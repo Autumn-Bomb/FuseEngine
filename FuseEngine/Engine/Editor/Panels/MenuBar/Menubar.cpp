@@ -17,6 +17,9 @@ void Fuse::Menubar::OnImGuiRender()
 		}
 		if (ImGui::BeginMenu("Edit"))
 		{
+			ImGui::MenuItem("Copy");
+			ImGui::MenuItem("Cut");
+			ImGui::MenuItem("Paste");
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Panels"))

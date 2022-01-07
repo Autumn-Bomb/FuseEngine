@@ -1,6 +1,5 @@
 #pragma once
 #include "../../../Framework/Panels/BasePanel/Panel.h"
-
 #include <string>
 
 namespace Fuse
@@ -28,7 +27,11 @@ namespace Fuse
 			inline static ImGuiTextBuffer m_Buffer;
 			inline static ImVector<int> m_LineOffsets;
 
-			inline static ImVec4 m_TextColour;
+		private:
+			inline static int m_ActionCount;
+			inline static int m_WarningCount;
+			inline static int m_ErrorCount;
+			inline static int m_MessageCount;
 
 		private:
 			bool m_AutoScroll;

@@ -3,6 +3,8 @@
 
 int main()
 {
+	srand(time(NULL));
+
 	Fuse::Editor editor;
 	Fuse::Window window(editor);
 

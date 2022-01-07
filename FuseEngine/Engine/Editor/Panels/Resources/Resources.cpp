@@ -20,17 +20,17 @@ void Fuse::Resources::OnImGuiRender()
 
 	if (ImGui::TreeNode("Textures"))
 	{
-		ImGui::Text("Textures Loaded: %i", m_TextureCount);
+		ImGui::BulletText("Textures Loaded: %i", m_TextureCount);
 		ImGui::TreePop();
 	}
 	if (ImGui::TreeNode("Sounds"))
 	{
-		ImGui::Text("Sounds Loaded: %i", 0);
+		ImGui::BulletText("Sounds Loaded: %i", 0);
 		ImGui::TreePop();
 	}
 	if (ImGui::TreeNode("Shaders"))
 	{
-		ImGui::Text("Shaders Loaded: %i", m_ShaderCount);
+		ImGui::BulletText("Shaders Loaded: %i", m_ShaderCount);
 
 		ImGui::Separator();
 		ImGui::Button("Reload Shaders");

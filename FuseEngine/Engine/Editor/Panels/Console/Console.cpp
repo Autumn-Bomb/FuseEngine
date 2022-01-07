@@ -1,5 +1,4 @@
 #include "Console.h"
-#include <iostream>
 
 Fuse::Console::Console()
 {
@@ -21,26 +20,26 @@ void Fuse::Console::PrintToConsole(MessageType messageType, const char* message,
 	{
 		case MessageType::ACTION: 
 		{
-			m_TextColour = ImVec4(0, 255, 0, 255);
 			newMessage = "[ACTION] " + std::string(message) + "\n";
+			m_ActionCount++;
 		}
 			break;
 		case MessageType::ERROR:
 		{
-			m_TextColour = ImVec4(255, 0, 0, 255);
 			newMessage = "[ERROR] " + std::string(message) + "\n";
+			m_ErrorCount++;
 		}
 			break;
 		case MessageType::MESSAGE:
 		{
-			m_TextColour = ImVec4(255, 255, 255, 255);
-			newMessage = "[MESSAGE] " + std::string(message) + "\n"; 
+			newMessage = "[MESSAGE] " + std::string(message) + "\n";
+			m_MessageCount++;
 		}
 			break;
 		case MessageType::WARNING:
 		{ 
-			m_TextColour = ImVec4(0, 255, 255, 255);
-			newMessage = "[WARNING] " + std::string(message) + "\n"; 
+			newMessage = "[WARNING] " + std::string(message) + "\n";
+			m_WarningCount++;
 		}
 			break;
 	}
@@ -94,9 +93,7 @@ void Fuse::Console::OnImGuiRender()
 			const char* lineStart = m_Buffer.begin() + m_LineOffsets[lineNo];
 			const char* lineEnd = (lineNo + 1 < m_LineOffsets.Size) ? (m_Buffer.begin() + m_LineOffsets[lineNo + 1] - 1) : m_Buffer.end();
 
-			ImGui::PushStyleColor(ImGuiCol_Text, m_TextColour);
 			ImGui::TextUnformatted(lineStart, lineEnd);
-			ImGui::PopStyleColor();
 		}
 	}
 	clipper.End();
@@ -115,4 +112,9 @@ void Fuse::Console::ClearConsole()
 	m_Buffer.clear();
 	m_LineOffsets.clear();
 	m_LineOffsets.push_back(0);
+
+	m_ActionCount = 0;
+	m_WarningCount = 0;
+	m_ErrorCount = 0;
+	m_MessageCount = 0;
 }

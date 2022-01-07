@@ -23,20 +23,29 @@ void Fuse::ShaderProgram::LoadShader(const char* shaderName, GLuint shaderType, 
 
 		shaderFile.open(shaderPath);
 		shaderStream << shaderFile.rdbuf();
-
+		
 		if (shaderType == GL_VERTEX_SHADER)
 		{
 			m_VertexCode = shaderStream.str();
 			m_VertexShaderCode = m_VertexCode.c_str();
+
+			shaderFile.close();
+			CreateShader(shaderName, shaderType);
 		}
 		else if (shaderType == GL_FRAGMENT_SHADER)
 		{
 			m_FragmentCode = shaderStream.str();
 			m_FragmentShaderCode = m_FragmentCode.c_str();
-		}
 
-		shaderFile.close();
-		CreateShader(shaderName, shaderType);
+			shaderFile.close();
+			CreateShader(shaderName, shaderType);
+		}
+		else
+		{
+			std::string name(shaderName);
+			std::string message = "Shader type: " + name + " Shader unsupported by Shader Program";
+			Fuse::Console::PrintToConsole(Fuse::MessageType::ERROR, message.c_str());
+		}
 	}
 	catch (std::ofstream::failure e)
 	{

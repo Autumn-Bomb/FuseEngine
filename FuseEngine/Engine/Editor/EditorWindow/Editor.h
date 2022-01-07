@@ -2,6 +2,7 @@
 
 #include "../../Framework/Panels/PanelManager/PanelManager.h"
 #include "../Panels/MenuBar/Menubar.h"
+#include "../../Framework/TestScene/TestScene.h"
 
 #include <glfw3.h>
 
@@ -18,6 +19,8 @@ namespace Fuse
 
 			void RenderActivePanels();
 			void HandlePanelDocking();
+
+			void SetupScene();
 
 		public:
 			void ProcessInput(GLFWwindow* window);
@@ -40,8 +43,10 @@ namespace Fuse
 
 		private:
 			Fuse::PanelManager m_PanelManager;
+			Fuse::TestScene m_Scene;
 
 		private:
+			double m_CurrentTime;
 			double m_LastTime;
 			double m_FrameTime;
 			int m_FPS;
