@@ -8,6 +8,7 @@
 #include "../../../Editor/Panels/Resources/Resources.h"
 #include "../../../Editor/Panels/Inspector/Inspector.h"
 #include "../../../Editor/Panels/Console/Console.h"
+#include "../../../Editor/Panels/AssetBrowser/AssetBrowser.h"
 
 #include <unordered_map>
 
@@ -26,7 +27,7 @@ namespace Fuse
 			void AddPanel(const char* name, Fuse::Panel* panel);
 
 		public:
-			Fuse::Panel* GetPanel(const char* name)
+			static Fuse::Panel* GetPanel(const char* name)
 			{
 				auto pairFound = m_Panels.find(name);
 
@@ -37,6 +38,6 @@ namespace Fuse
 			}
 
 		private:
-			std::unordered_map<std::string, Fuse::Panel*> m_Panels;
+			inline static std::unordered_map<std::string, Fuse::Panel*> m_Panels;
 	};
 }

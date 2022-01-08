@@ -3,6 +3,7 @@
 #include "../../Framework/Panels/PanelManager/PanelManager.h"
 #include "../Panels/MenuBar/Menubar.h"
 #include "../../Framework/TestScene/TestScene.h"
+#include "../../Framework/Layers/InputLayer/InputLayer.h"
 
 #include <glfw3.h>
 
@@ -21,6 +22,7 @@ namespace Fuse
 			void HandlePanelDocking();
 
 			void SetupScene();
+			void SetInputLayer(Fuse::InputLayer& inputLayer) { m_InputLayer = inputLayer; }
 
 		public:
 			void ProcessInput(GLFWwindow* window);
@@ -40,10 +42,12 @@ namespace Fuse
 			Fuse::Resources m_Resources;
 			Fuse::Inspector m_Inspector;
 			Fuse::Console m_Console;
+			Fuse::AssetBrowser m_AssetBrowser;
 
 		private:
 			Fuse::PanelManager m_PanelManager;
 			Fuse::TestScene m_Scene;
+			Fuse::InputLayer m_InputLayer;
 
 		private:
 			double m_CurrentTime;

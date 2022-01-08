@@ -15,6 +15,7 @@ Fuse::Editor::Editor()
 	m_PanelManager.AddPanel("Resources", &m_Resources);
 	m_PanelManager.AddPanel("Inspector", &m_Inspector);
 	m_PanelManager.AddPanel("Console", &m_Console);
+	m_PanelManager.AddPanel("Asset Browser", &m_AssetBrowser);
 }
 Fuse::Editor::~Editor() {}
 
@@ -53,6 +54,7 @@ void Fuse::Editor::RenderEditor()
 
 	HandlePanelDocking();
 
+	m_Scene.Update(m_InputLayer);
 	m_Scene.Render();
 
 	RenderActivePanels();

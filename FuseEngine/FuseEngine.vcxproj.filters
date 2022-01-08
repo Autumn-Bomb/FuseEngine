@@ -50,11 +50,13 @@
     <ClCompile Include="Engine\Framework\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="Engine\Editor\Panels\Resources\Resources.cpp" />
     <ClCompile Include="Includes\Include\STB\stb_vorbis.c" />
-    <ClCompile Include="Engine\Framework\Graphics\Renderer2D\Renderer2D.cpp" />
+    <ClCompile Include="Engine\Framework\Graphics\Rendering\Renderer2D\Renderer2D.cpp" />
     <ClCompile Include="Engine\Editor\Panels\Inspector\Inspector.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.cpp" />
     <ClCompile Include="Engine\Framework\Input\Input.cpp" />
     <ClCompile Include="Engine\Editor\Panels\Console\Console.cpp" />
+    <ClCompile Include="Engine\Framework\Graphics\Rendering\BatchRenderer\BatchRenderer.cpp" />
+    <ClCompile Include="Engine\Editor\Panels\AssetBrowser\AssetBrowser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -151,7 +153,7 @@
     <ClInclude Include="Includes\Include\STB\stb_tilemap_editor.h" />
     <ClInclude Include="Includes\Include\STB\stb_truetype.h" />
     <ClInclude Include="Includes\Include\STB\stb_voxel_render.h" />
-    <ClInclude Include="Engine\Framework\Graphics\Renderer2D\Renderer2D.h" />
+    <ClInclude Include="Engine\Framework\Graphics\Rendering\Renderer2D\Renderer2D.h" />
     <ClInclude Include="Engine\Framework\Graphics\Shape2D\Shape2D.h" />
     <ClInclude Include="Engine\Editor\Panels\Inspector\Inspector.h" />
     <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
@@ -162,6 +164,9 @@
     <ClInclude Include="Engine\Framework\Layers\InputLayer\InputLayer.h" />
     <ClInclude Include="Engine\Editor\Panels\Console\Console.h" />
     <ClInclude Include="Engine\Framework\TestScene\TestScene.h" />
+    <ClInclude Include="Engine\Framework\Graphics\Rendering\BatchRenderer\BatchRenderer.h" />
+    <ClInclude Include="Engine\Editor\Panels\AssetBrowser\AssetBrowser.h" />
+    <ClInclude Include="Engine\Framework\EditorCamera\EditorCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

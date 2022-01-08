@@ -1,5 +1,5 @@
 #include "Profiler.h"
-#include "../../../Framework/Graphics/Renderer2D/Renderer2D.h"
+#include "../../../Framework/Graphics/Rendering/Renderer2D/Renderer2D.h"
 
 Fuse::Profiler::Profiler()
 {

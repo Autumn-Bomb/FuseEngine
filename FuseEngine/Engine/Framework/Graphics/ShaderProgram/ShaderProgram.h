@@ -1,6 +1,8 @@
 #pragma once
 #include "glad.h"
 #include "../../../Editor/Panels/Console/Console.h"
+#include "../GLM/glm.hpp"
+#include "../GLM/gtc/matrix_transform.hpp"
 
 #include <iostream>
 #include <unordered_map>
@@ -35,6 +37,7 @@ namespace Fuse
 			void SetInt(const std::string& name, int value) const;
 			void SetFloat(const std::string& name, float value) const;
 			void SetUniformMatrix4fv(const char* uniformName, GLsizei count, GLboolean transpose, const GLfloat* value);
+			void SetUniformMatrix4(const char* uniformName, const glm::mat4& matrix);
 
 		public:
 			GLuint GetActiveShaderProgram() { return m_ShaderProgramID; }

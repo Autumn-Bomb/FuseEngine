@@ -1,4 +1,5 @@
 #include "ShaderProgram.h"
+#include "../../../../Includes/Include/GLM/gtc/type_ptr.hpp"
 
 Fuse::ShaderProgram::ShaderProgram()
 {
@@ -178,4 +179,10 @@ void Fuse::ShaderProgram::SetUniformMatrix4fv(const char* uniformName, GLsizei c
 {
 	GLuint location = glGetUniformLocation(GetActiveShaderProgram(), uniformName);
 	glUniformMatrix4fv(location , 1, GL_FALSE, value);
+}
+
+void Fuse::ShaderProgram::SetUniformMatrix4(const char* uniformName, const glm::mat4& matrix)
+{
+	GLuint location = glGetUniformLocation(GetActiveShaderProgram(), uniformName);
+	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
 }

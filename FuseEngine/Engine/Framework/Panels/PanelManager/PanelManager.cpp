@@ -5,7 +5,7 @@ Fuse::PanelManager::~PanelManager() {}
 
 void Fuse::PanelManager::AddPanel(const char* name, Fuse::Panel* panel)
 {
-	m_Panels[name] = panel; 
+	m_Panels[name] = panel;
 }
 
 void Fuse::PanelManager::RenderActivePanels()

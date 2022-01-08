@@ -76,6 +76,8 @@ void Fuse::Window::InitialiseLayers()
 	m_InputLayer.OnCreate();
 
 	m_Layers.emplace_back(m_InputLayer);
+
+	m_Editor->SetInputLayer(m_InputLayer);
 }
 
 void Fuse::Window::MainWindowLoop()

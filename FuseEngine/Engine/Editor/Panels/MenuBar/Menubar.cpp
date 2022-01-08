@@ -20,6 +20,7 @@ void Fuse::Menubar::OnImGuiRender()
 			ImGui::MenuItem("Copy");
 			ImGui::MenuItem("Cut");
 			ImGui::MenuItem("Paste");
+
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Panels"))
@@ -28,9 +29,9 @@ void Fuse::Menubar::OnImGuiRender()
 			ImGui::MenuItem("Scene Viewport");
 			ImGui::MenuItem("Game Viewport");
 			ImGui::MenuItem("Profiler");
+
 			ImGui::EndMenu();
 		}
-
 		ImGui::EndMenuBar();
 	}
 }

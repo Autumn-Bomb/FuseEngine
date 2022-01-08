@@ -35,10 +35,12 @@ namespace Fuse
 
 			void OnUpdate() override
 			{
-				if (m_Input->GetKeyDown('W'))
-				{
-					std::cout << "Input Layer[Key Pressed]: W" << std::endl;
-				}
+				
+			}
+
+			static bool IsKeyDown(int key)
+			{
+				return m_Input->GetKeyDown(key);
 			}
 
 			void PrintKeyPressed(int key)
@@ -56,6 +58,6 @@ namespace Fuse
 			std::vector<int> m_TrackedKeys;
 
 		private:
-			Fuse::Input* m_Input;
+			inline static Fuse::Input* m_Input;
 	};
 }

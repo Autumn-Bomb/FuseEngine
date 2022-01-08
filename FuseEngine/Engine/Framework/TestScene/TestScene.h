@@ -1,5 +1,6 @@
 #pragma once
-#include "../Graphics/Renderer2D/Renderer2D.h"
+#include "../Graphics/Rendering/Renderer2D/Renderer2D.h"
+#include "../EditorCamera/EditorCamera.h"
 
 namespace Fuse
 {
@@ -24,11 +25,16 @@ namespace Fuse
 				t_GridTexture = 0;
 
 				m_SceneName = sceneName;
+
+				m_EditorCamera = Fuse::EditorCamera(-1.6f, 1.6f, -0.9f, 0.9f);
 			}
 
 			void InitialiseScene()
 			{
-				Fuse::Renderer2D::InitialiseRenderer();
+				m_EditorCamera.SetRotation(0.0f);
+				m_EditorCamera.SetPosition(glm::vec3(0.0f, 0.0f, 0.0f));
+
+				Fuse::Renderer2D::InitialiseRenderer(m_EditorCamera);
 
 				Fuse::ResourceManager::LoadShader("VERTEX", GL_VERTEX_SHADER, "Engine/Framework/Graphics/Shaders/Basic/VertexShader.vert");
 				Fuse::ResourceManager::LoadShader("FRAGMENT", GL_FRAGMENT_SHADER, "Engine/Framework/Graphics/Shaders/Basic/FragmentShader.frag");
@@ -42,10 +48,12 @@ namespace Fuse
 
 				std::cout << "Scene Intialised!" << std::endl;
 			}
-
+			 
 			void Input() {}
-
-			void Update(float deltaTime) {}
+			void Update(Fuse::InputLayer& inputLayer)
+			{
+				m_EditorCamera.HandleInput(inputLayer);
+			}
 
 			void Render()
 			{
@@ -57,6 +65,8 @@ namespace Fuse
 				Fuse::Renderer2D::DrawSprite(t_PipesTexture, { -0.5f, -0.4f, 0 }, { 1, 1.7f, 1 }, 0, glm::vec4(1, 1, 1, 1));
 				Fuse::Renderer2D::DrawSprite(t_PlayerTexture, { -0.7f, -0.3f, 0 }, { 0.2f, 0.3f, 0.1f }, 0, glm::vec4(1, 1, 1, 1));
 
+				Fuse::ResourceManager::GetShaderProgram().SetUniformMatrix4("viewProjection", m_EditorCamera.GetProjectionViewMatrix());
+
 				Fuse::Renderer2D::Unbind();
 			}
 
@@ -66,7 +76,10 @@ namespace Fuse
 
 		private:
 			Fuse::Renderer2D m_Renderer;
+			Fuse::EditorCamera m_EditorCamera;
+
 			const char* m_SceneName = "Test Scene";
+
 		private:
 			uint32_t t_GridTexture;
 
