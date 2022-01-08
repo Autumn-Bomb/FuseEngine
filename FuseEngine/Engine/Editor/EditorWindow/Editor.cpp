@@ -10,7 +10,7 @@ Fuse::Editor::Editor()
 
 	m_PanelManager.AddPanel("Stats", &m_Profiler);
 	m_PanelManager.AddPanel("Scene View", &m_SceneView);
-	//m_PanelManager.AddPanel("Game View", &m_GameView);
+	m_PanelManager.AddPanel("Game View", &m_GameView);
 	m_PanelManager.AddPanel("Scene Hierarchy", &m_SceneHierarchy);
 	m_PanelManager.AddPanel("Resources", &m_Resources);
 	m_PanelManager.AddPanel("Inspector", &m_Inspector);
@@ -19,7 +19,7 @@ Fuse::Editor::Editor()
 }
 Fuse::Editor::~Editor() {}
 
-void Fuse::Editor::ProcessInput(GLFWwindow* window) { }
+void Fuse::Editor::ProcessInput(GLFWwindow* window) {}
 
 void Fuse::Editor::SetupScene()
 {
@@ -54,7 +54,7 @@ void Fuse::Editor::RenderEditor()
 
 	HandlePanelDocking();
 
-	m_Scene.Update(m_InputLayer);
+	m_Scene.Update();
 	m_Scene.Render();
 
 	RenderActivePanels();

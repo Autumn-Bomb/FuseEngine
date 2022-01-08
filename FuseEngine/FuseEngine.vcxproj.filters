@@ -57,6 +57,7 @@
     <ClCompile Include="Engine\Editor\Panels\Console\Console.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Rendering\BatchRenderer\BatchRenderer.cpp" />
     <ClCompile Include="Engine\Editor\Panels\AssetBrowser\AssetBrowser.cpp" />
+    <ClCompile Include="Engine\Framework\EditorCamera\EditorCameraController\EditorCameraController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -167,6 +168,7 @@
     <ClInclude Include="Engine\Framework\Graphics\Rendering\BatchRenderer\BatchRenderer.h" />
     <ClInclude Include="Engine\Editor\Panels\AssetBrowser\AssetBrowser.h" />
     <ClInclude Include="Engine\Framework\EditorCamera\EditorCamera.h" />
+    <ClInclude Include="Engine\Framework\EditorCamera\EditorCameraController\EditorCameraController.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

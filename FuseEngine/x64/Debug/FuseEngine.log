@@ -1,9 +1,8 @@
 ﻿  Editor.cpp
-  Profiler.cpp
   SceneViewport.cpp
 E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Editor\Panels\SceneViewport\SceneViewport.cpp(15,73): warning C4312: 'type cast': conversion from 'uint32_t' to 'ImTextureID' of greater size
   Window.cpp
-  Renderer2D.cpp
+  EditorCameraController.cpp
   PanelManager.cpp
   Main.cpp
 E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Main\Main.cpp(6,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data

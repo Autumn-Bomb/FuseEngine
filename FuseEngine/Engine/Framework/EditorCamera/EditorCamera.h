@@ -2,7 +2,6 @@
 
 #include "../GLM/glm.hpp"
 #include "../GLM/gtc/matrix_transform.hpp"
-#include "../Layers/InputLayer/InputLayer.h"
 
 namespace Fuse
 {
@@ -32,31 +31,6 @@ namespace Fuse
 			void SetRotation(float rotation) { m_Rotation = rotation; RecalculateViewMatrix(); }
 
 		public:
-			void HandleInput(Fuse::InputLayer& inputLayer)
-			{
-				if (inputLayer.IsKeyDown('W'))
-				{
-					SetPosition(glm::vec3(GetPosition().x, GetPosition().y - 0.1f * m_MovementSpeed, 0.0f));
-					std::cout << "Moving up" << std::endl;
-				} 
-				else if (inputLayer.IsKeyDown('S'))
-				{
-					SetPosition(glm::vec3(GetPosition().x, GetPosition().y + 0.1f * m_MovementSpeed, 0.0f));
-					std::cout << "Moving down" << std::endl;
-				}
-				else if (inputLayer.IsKeyDown('A'))
-				{
-					SetPosition(glm::vec3(GetPosition().x - 0.1f * m_MovementSpeed, GetPosition().y, 0.0f));
-					std::cout << "Moving down" << std::endl;
-				}
-				else if (inputLayer.IsKeyDown('D'))
-				{
-					SetPosition(glm::vec3(GetPosition().x + 0.1f * m_MovementSpeed, GetPosition().y, 0.0f));
-					std::cout << "Moving down" << std::endl;
-				}
-			}
-
-		public:
 			const glm::mat4 GetProjectionMatrix() const { return m_ProjectionMatrix; }
 			const glm::mat4 GetViewMatrix() const { return m_ViewMatrix; }
 			const glm::mat4 GetProjectionViewMatrix() const { return m_ProjectionViewMatrix; }
@@ -78,8 +52,8 @@ namespace Fuse
 			glm::mat4 m_ProjectionViewMatrix;
 
 		private:
-			float m_MovementSpeed; 
 			glm::vec3 m_Position;
+			float m_MovementSpeed; 
 			float m_Rotation;
 	};
 }

@@ -159,6 +159,7 @@
     <ClCompile Include="Engine\Editor\Panels\MenuBar\Menubar.cpp" />
     <ClCompile Include="Engine\Editor\Panels\Resources\Resources.cpp" />
     <ClCompile Include="Engine\Editor\Panels\SceneHierarchy\SceneHeriarchy.cpp" />
+    <ClCompile Include="Engine\Framework\EditorCamera\EditorCameraController\EditorCameraController.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Rendering\BatchRenderer\BatchRenderer.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\Rendering\Renderer2D\Renderer2D.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="Engine\Editor\Panels\SceneHierarchy\SceneHierarchy.h" />
     <ClInclude Include="Engine\Framework\ECS\Components\Components.h" />
     <ClInclude Include="Engine\Framework\ECS\Entity\Entity.h" />
+    <ClInclude Include="Engine\Framework\EditorCamera\EditorCameraController\EditorCameraController.h" />
     <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
     <ClInclude Include="Engine\Framework\Graphics\Rendering\BatchRenderer\BatchRenderer.h" />
     <ClInclude Include="Engine\Framework\Graphics\Shape2D\Shape2D.h" />
