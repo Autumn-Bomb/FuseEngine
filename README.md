@@ -3,7 +3,7 @@ Fuse Engine is a 2D engine made with OpenGL 4.6 and ImGui
 
 My goal with Fuse is to learn about OpenGL 4.6 and how graphics programming works. By the end of this project I would like to have the ability to make a simple 2D platformer within Fuse and export it into a Windows .exe file.
 
-Current Implemented Features:
+Current Implemented Features:  
 Resource Management: The Resource Manager contains static functions that only have return types, this is so they can be used without an instance and can be put into relative Data Types fairly easily, an example of this is the Fuse::ResourceManager::LoadTexture() which takes in a path to the texture being loaded, and returns an uint32_t which can be stored for use by the Renderer later down the line.  
 2D Renderer: The 2D renderer is used for drawing sprites into a scene, currently a scene Binds the renderer, renders all the sprites and then unbinds the renderer, this also calls the relative functions for the FBO which is then converted to a Texture and rendered to the Scene Viewport Panel.  
 Editor Camera Controller: The Camera Controller for the Scene Viewport uses the Input class and allows the user to navigate around a 2D scene currently using W,A,S,D with support for mouse controls to make this more intuative. 
