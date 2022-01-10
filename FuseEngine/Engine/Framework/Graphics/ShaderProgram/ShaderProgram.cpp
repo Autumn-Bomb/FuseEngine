@@ -131,12 +131,19 @@ bool Fuse::ShaderProgram::CheckShaderCompilation(GLuint shader, const char* shad
 	if (!success)
 	{
 		glGetShaderInfoLog(shader, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::COMPILATION_FAILED::" << shaderName << ": " << infoLog << std::endl;
+
+		std::string message = shaderName;
+		message.append(infoLog);
+
+		Fuse::Console::PrintToConsole(Fuse::MessageType::ERROR, message.c_str());
 		return false;
 	}
 	else
 	{
-		std::cout << "SUCCESS::SHADER::COMPILATION_COMPLETED::" << shaderName << std::endl;
+		std::string message = "Shader Compilation Successful: ";
+		message.append(shaderName);
+
+		Fuse::Console::PrintToConsole(Fuse::MessageType::MESSAGE, message.c_str());
 		return true;
 	}
 }
@@ -150,12 +157,12 @@ bool Fuse::ShaderProgram::CheckShaderLink(GLuint shaderProgram)
 	if (!success)
 	{
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::LINK_FAILED: " << infoLog << std::endl;
+		Fuse::Console::PrintToConsole(Fuse::MessageType::ERROR, "Shader Link Failed");
 		return false;
 	}
 	else
 	{
-		std::cout << "SUCCESS::SHADER::LINK_COMPLETED " << std::endl;
+		Fuse::Console::PrintToConsole(Fuse::MessageType::MESSAGE, "Shader Link Successful");
 		return true;
 	}
 }

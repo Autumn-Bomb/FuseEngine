@@ -12,17 +12,17 @@ namespace Fuse
 			~EditorCameraController();
 
 		public:
-			void Update();
+			void HandleInput(float deltaTime);
 
 		public:
 			Fuse::EditorCamera* GetCamera() { return m_EditorCamera; }
 
 		private:
 			std::vector<int> m_TrackedKeys;
+			std::vector<int> m_TrackedMouseButtons;
 			
 		private:
 			float m_MovementDistance;
-			float m_MovementSpeed;
 
 		private:
 			Fuse::EditorCamera* m_EditorCamera;

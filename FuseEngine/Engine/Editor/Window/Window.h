@@ -4,7 +4,6 @@
 #include "glfw3.h"
 #include "../../../ImGui/imgui_impl_opengl3.h"
 #include "../../../ImGui/imgui_impl_glfw.h"
-
 #include "../EditorWindow/Editor.h"
 #include "../../Framework/Layers/InputLayer/InputLayer.h"
 
@@ -54,6 +53,8 @@ namespace Fuse
 		private:
 			Fuse::InputLayer m_InputLayer;
 			Fuse::Editor* m_Editor;
+
+		private:
 			GLFWwindow* m_Window;
 
 		private:

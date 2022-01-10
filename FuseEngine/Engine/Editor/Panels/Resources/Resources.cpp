@@ -23,11 +23,6 @@ void Fuse::Resources::OnImGuiRender()
 		ImGui::BulletText("Textures Loaded: %i", m_TextureCount);
 		ImGui::TreePop();
 	}
-	if (ImGui::TreeNode("Sounds"))
-	{
-		ImGui::BulletText("Sounds Loaded: %i", 0);
-		ImGui::TreePop();
-	}
 	if (ImGui::TreeNode("Shaders"))
 	{
 		ImGui::BulletText("Shaders Loaded: %i", m_ShaderCount);

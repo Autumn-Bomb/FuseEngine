@@ -130,6 +130,8 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,6 +151,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -167,6 +171,7 @@
     <ClCompile Include="Engine\Framework\Panels\PanelManager\PanelManager.cpp" />
     <ClCompile Include="Engine\Framework\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="Engine\Framework\Graphics\ShaderProgram\ShaderProgram.cpp" />
+    <ClCompile Include="Engine\Framework\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Engine\Main\Main.cpp" />
     <ClCompile Include="Engine\Editor\Panels\GameViewport\GameViewport.cpp" />
     <ClCompile Include="Engine\Editor\Panels\SceneViewport\SceneViewport.cpp" />
@@ -190,6 +195,7 @@
     <ClInclude Include="Engine\Editor\Panels\MenuBar\Menubar.h" />
     <ClInclude Include="Engine\Editor\Panels\Resources\Resources.h" />
     <ClInclude Include="Engine\Editor\Panels\SceneHierarchy\SceneHierarchy.h" />
+    <ClInclude Include="Engine\Framework\DeltaTime\DeltaTime.h" />
     <ClInclude Include="Engine\Framework\ECS\Components\Components.h" />
     <ClInclude Include="Engine\Framework\ECS\Entity\Entity.h" />
     <ClInclude Include="Engine\Framework\EditorCamera\EditorCameraController\EditorCameraController.h" />
@@ -198,8 +204,6 @@
     <ClInclude Include="Engine\Framework\Graphics\Shape2D\Shape2D.h" />
     <ClInclude Include="Engine\Framework\Graphics\Rendering\Renderer2D\Renderer2D.h" />
     <ClInclude Include="Engine\Framework\Input\Input.h" />
-    <ClInclude Include="Engine\Framework\Layers\BaseLayer\BaseLayer.h" />
-    <ClInclude Include="Engine\Framework\Layers\InputLayer\InputLayer.h" />
     <ClInclude Include="Engine\Framework\Panels\BasePanel\Panel.h" />
     <ClInclude Include="Engine\Framework\Panels\PanelManager\PanelManager.h" />
     <ClInclude Include="Engine\Framework\ResourceManager\ResourceManager.h" />
@@ -208,7 +212,9 @@
     <ClInclude Include="Engine\Editor\Panels\SceneViewport\SceneViewport.h" />
     <ClInclude Include="Engine\Editor\Panels\Profiler\Profiler.h" />
     <ClInclude Include="Engine\Editor\Window\Window.h" />
-    <ClInclude Include="Engine\Framework\TestScene\TestScene.h" />
+    <ClInclude Include="Engine\Framework\SceneManager\SceneManager.h" />
+    <ClInclude Include="Engine\Framework\Scene\Scene.h" />
+    <ClInclude Include="Engine\Framework\Scene\Scene1.h" />
     <ClInclude Include="Engine\Framework\Timer\Timer.h" />
     <ClInclude Include="Engine\Framework\EditorCamera\EditorCamera.h" />
     <ClInclude Include="ImGui\imconfig.h" />
@@ -243,6 +249,7 @@
     <ClInclude Include="Includes\Include\GLM\vec3.hpp" />
     <ClInclude Include="Includes\Include\GLM\vec4.hpp" />
     <ClInclude Include="Includes\Include\GLM\vector_relational.hpp" />
+    <ClInclude Include="Includes\Include\JSON\json.hpp" />
     <ClInclude Include="Includes\Include\STB\stb_connected_components.h" />
     <ClInclude Include="Includes\Include\STB\stb_c_lexer.h" />
     <ClInclude Include="Includes\Include\STB\stb_divide.h" />

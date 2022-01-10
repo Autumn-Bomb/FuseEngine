@@ -2,10 +2,9 @@
 
 #include "../../Framework/Panels/PanelManager/PanelManager.h"
 #include "../Panels/MenuBar/Menubar.h"
-#include "../../Framework/TestScene/TestScene.h"
-#include "../../Framework/Layers/InputLayer/InputLayer.h"
-
-#include <glfw3.h>
+#include "../../Framework/Scene/Scene.h"
+#include "../../Framework/SceneManager/SceneManager.h"
+#include "../../Framework/DeltaTime/DeltaTime.h"
 
 namespace Fuse
 {
@@ -22,7 +21,7 @@ namespace Fuse
 			void HandlePanelDocking();
 
 			void SetupScene();
-			void SetInputLayer(Fuse::InputLayer& inputLayer) { m_InputLayer = inputLayer; }
+			void RunLoadedScene();
 
 		public:
 			void ProcessInput(GLFWwindow* window);
@@ -46,8 +45,7 @@ namespace Fuse
 
 		private:
 			Fuse::PanelManager m_PanelManager;
-			Fuse::TestScene m_Scene;
-			Fuse::InputLayer m_InputLayer;
+			Fuse::Scene m_Scene;
 
 		private:
 			double m_CurrentTime;

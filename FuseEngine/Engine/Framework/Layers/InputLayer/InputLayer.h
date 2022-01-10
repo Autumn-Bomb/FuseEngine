@@ -14,7 +14,7 @@ namespace Fuse
 		public:
 			void InitialiseCallback(GLFWwindow* window)
 			{
-				m_Input->InitialiseCallback(window);
+				m_Input->InitialiseCallbacks(window);
 			}
 
 			void AddTrackedKeys()
@@ -43,9 +43,9 @@ namespace Fuse
 				return m_Input->GetKeyDown(key);
 			}
 
-			void PrintKeyPressed(int key)
+			static bool IsMouseButtonDown(int button)
 			{
-				std::cout << "Input Layer[Key Pressed]: " << static_cast<char>(key - 'a') << std::endl;
+				return m_Input->GetMouseButtonDown(button);
 			}
 
 			void OnDestroy() override

@@ -76,8 +76,6 @@ void Fuse::Window::InitialiseLayers()
 	m_InputLayer.OnCreate();
 
 	m_Layers.emplace_back(m_InputLayer);
-
-	m_Editor->SetInputLayer(m_InputLayer);
 }
 
 void Fuse::Window::MainWindowLoop()
@@ -97,8 +95,8 @@ void Fuse::Window::MainWindowLoop()
 		glfwSwapBuffers(m_Window);
 		glfwPollEvents();
 	}
-	
-	// Destroy Layers
+
+	// Destroy the Input Layer
 	m_InputLayer.OnDestroy();
 
 	// Shutdown ImGui and destroy the GLFW window, then terminate GLFW altogether

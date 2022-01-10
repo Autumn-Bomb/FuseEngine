@@ -1,5 +1,4 @@
 #include "Profiler.h"
-#include "../../../Framework/Graphics/Rendering/Renderer2D/Renderer2D.h"
 
 Fuse::Profiler::Profiler()
 {
@@ -9,6 +8,7 @@ Fuse::Profiler::Profiler()
 
 	m_FPS = 0;
 	m_Frametime = 0;
+	m_Drawcalls = 0;
 }
 Fuse::Profiler::~Profiler() {}
 
@@ -31,11 +31,12 @@ void Fuse::Profiler::OnImGuiRender()
 	{
 		ImGui::TextWrapped("FPS: %i", m_FPS);
 		ImGui::TextWrapped("Frametime: %04.2f m/s", m_Frametime * 10000);
+		ImGui::TextWrapped("Delta Time: %f", Fuse::DeltaTime::GetDeltaTime());
 	}
 	if (ImGui::CollapsingHeader("RENDERING STATS"), ImGuiTreeNodeFlags_DefaultOpen)
 	{
 		ImGui::Text("Entities: %i", 0);
-		ImGui::Text("Draw Calls: %i", Fuse::Renderer2D::GetDrawcalls());
+		ImGui::Text("Draw Calls: %d", Fuse::Renderer2D::GetDrawcalls());
 		ImGui::Text("Vertices: %i", 0);
 		ImGui::Text("Indices: %i", 0);
 	}

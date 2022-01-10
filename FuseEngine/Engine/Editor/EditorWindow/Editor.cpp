@@ -10,7 +10,7 @@ Fuse::Editor::Editor()
 
 	m_PanelManager.AddPanel("Stats", &m_Profiler);
 	m_PanelManager.AddPanel("Scene View", &m_SceneView);
-	m_PanelManager.AddPanel("Game View", &m_GameView);
+	//m_PanelManager.AddPanel("Game View", &m_GameView);
 	m_PanelManager.AddPanel("Scene Hierarchy", &m_SceneHierarchy);
 	m_PanelManager.AddPanel("Resources", &m_Resources);
 	m_PanelManager.AddPanel("Inspector", &m_Inspector);
@@ -23,16 +23,8 @@ void Fuse::Editor::ProcessInput(GLFWwindow* window) {}
 
 void Fuse::Editor::SetupScene()
 {
-	m_Scene = Fuse::TestScene("Game Scene");
-	m_Scene.InitialiseScene();
-	Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, "Scene Initialised");
-
-	m_SceneView.SetActiveScene(m_Scene);
-
-	std::string message = "Active Scene Rendered: ";
-	message.append(m_Scene.GetSceneName());
-
-	Fuse::Console::PrintToConsole(Fuse::MessageType::ACTION, message.c_str());
+	m_Scene = Fuse::Scene("Main Menu");
+	Fuse::SceneManager::OnSceneLoaded(m_Scene);
 
 	m_Resources.AddAllResources();
 }
@@ -53,12 +45,8 @@ void Fuse::Editor::RenderEditor()
 	ImGui::PopStyleVar();
 
 	HandlePanelDocking();
-
-	m_Scene.Update();
-	m_Scene.Render();
-
 	RenderActivePanels();
-	m_MenuBar.OnImGuiRender();
+	RunLoadedScene();
 
 	ImGui::End();
 }
@@ -66,6 +54,16 @@ void Fuse::Editor::RenderEditor()
 void Fuse::Editor::RenderActivePanels()
 {
 	m_PanelManager.RenderActivePanels();
+	m_MenuBar.OnImGuiRender();
+}
+
+void Fuse::Editor::RunLoadedScene()
+{
+	Fuse::DeltaTime::CalculateDeltaTime();
+
+	Fuse::SceneManager::OnSceneInput(Fuse::DeltaTime::GetDeltaTime());
+	Fuse::SceneManager::OnSceneUpdate(Fuse::DeltaTime::GetDeltaTime());
+	Fuse::SceneManager::OnSceneRendered();
 }
 
 void Fuse::Editor::HandlePanelDocking()

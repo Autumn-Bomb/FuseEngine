@@ -6,8 +6,6 @@
 #include "../../../ResourceManager/ResourceManager.h"
 #include "../../../Graphics/ShaderProgram/ShaderProgram.h"
 #include "../../Framebuffer/Framebuffer.h" 
-
-#include <glfw3.h>
 #include "../../../EditorCamera/EditorCamera.h"
 
 namespace Fuse

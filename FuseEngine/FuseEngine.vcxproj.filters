@@ -58,6 +58,7 @@
     <ClCompile Include="Engine\Framework\Graphics\Rendering\BatchRenderer\BatchRenderer.cpp" />
     <ClCompile Include="Engine\Editor\Panels\AssetBrowser\AssetBrowser.cpp" />
     <ClCompile Include="Engine\Framework\EditorCamera\EditorCameraController\EditorCameraController.cpp" />
+    <ClCompile Include="Engine\Framework\SceneManager\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -161,14 +162,16 @@
     <ClInclude Include="Engine\Framework\Input\Input.h" />
     <ClInclude Include="Engine\Framework\ECS\Components\Components.h" />
     <ClInclude Include="Engine\Framework\ECS\Entity\Entity.h" />
-    <ClInclude Include="Engine\Framework\Layers\BaseLayer\BaseLayer.h" />
-    <ClInclude Include="Engine\Framework\Layers\InputLayer\InputLayer.h" />
     <ClInclude Include="Engine\Editor\Panels\Console\Console.h" />
-    <ClInclude Include="Engine\Framework\TestScene\TestScene.h" />
+    <ClInclude Include="Engine\Framework\Scene\Scene.h" />
     <ClInclude Include="Engine\Framework\Graphics\Rendering\BatchRenderer\BatchRenderer.h" />
     <ClInclude Include="Engine\Editor\Panels\AssetBrowser\AssetBrowser.h" />
     <ClInclude Include="Engine\Framework\EditorCamera\EditorCamera.h" />
     <ClInclude Include="Engine\Framework\EditorCamera\EditorCameraController\EditorCameraController.h" />
+    <ClInclude Include="Engine\Framework\SceneManager\SceneManager.h" />
+    <ClInclude Include="Includes\Include\JSON\json.hpp" />
+    <ClInclude Include="Engine\Framework\DeltaTime\DeltaTime.h" />
+    <ClInclude Include="Engine\Framework\Scene\Scene1.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

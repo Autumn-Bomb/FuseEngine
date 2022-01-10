@@ -1,6 +1,8 @@
 #pragma once
 
 #include "../../../Framework/Panels/BasePanel/Panel.h"
+#include "../../../Framework/DeltaTime/DeltaTime.h"
+#include "../../../Framework/Graphics/Rendering/Renderer2D/Renderer2D.h"
 
 #include <iostream>
 
