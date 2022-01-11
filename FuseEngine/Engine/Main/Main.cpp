@@ -3,7 +3,7 @@
 
 int main()
 {
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 
 	Fuse::Editor editor;
 	Fuse::Window window(editor);

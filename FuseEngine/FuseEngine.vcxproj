@@ -196,8 +196,8 @@
     <ClInclude Include="Engine\Editor\Panels\Resources\Resources.h" />
     <ClInclude Include="Engine\Editor\Panels\SceneHierarchy\SceneHierarchy.h" />
     <ClInclude Include="Engine\Framework\DeltaTime\DeltaTime.h" />
-    <ClInclude Include="Engine\Framework\ECS\Components\Components.h" />
-    <ClInclude Include="Engine\Framework\ECS\Entity\Entity.h" />
+    <ClInclude Include="Engine\Framework\ECS\EntitySystem\EntitySystem.h" />
+    <ClInclude Include="Engine\Framework\ECS\Systems\RenderingSystem.h" />
     <ClInclude Include="Engine\Framework\EditorCamera\EditorCameraController\EditorCameraController.h" />
     <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
     <ClInclude Include="Engine\Framework\Graphics\Rendering\BatchRenderer\BatchRenderer.h" />
@@ -214,7 +214,6 @@
     <ClInclude Include="Engine\Editor\Window\Window.h" />
     <ClInclude Include="Engine\Framework\SceneManager\SceneManager.h" />
     <ClInclude Include="Engine\Framework\Scene\Scene.h" />
-    <ClInclude Include="Engine\Framework\Scene\Scene1.h" />
     <ClInclude Include="Engine\Framework\Timer\Timer.h" />
     <ClInclude Include="Engine\Framework\EditorCamera\EditorCamera.h" />
     <ClInclude Include="ImGui\imconfig.h" />

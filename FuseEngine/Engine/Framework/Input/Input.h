@@ -25,8 +25,8 @@ namespace Fuse
 			bool& GetMouseButtonDown(int button);
 			void SetMouseButtonDown(int button, bool status);
 
-			int& GetScrollWheelY() { return m_ScrollWheelYOffset; }
-			void SetMouseScrollY(int yOffset) { m_ScrollWheelYOffset = yOffset; }
+			double& GetScrollWheelY() { return m_ScrollWheelYOffset; }
+			void SetMouseScrollY(double yOffset) { m_ScrollWheelYOffset = yOffset; }
 
 			void SetMousePosOnScreen(glm::vec2 screenPos) { m_ScreenPos = screenPos; }
 			glm::vec2& GetMousePosFromScreen() { return m_ScreenPos; }
@@ -43,7 +43,7 @@ namespace Fuse
 			std::map<int, bool> m_MouseButtons;
 
 			bool m_IsEnabled;
-			inline static int m_ScrollWheelYOffset;
+			inline static double m_ScrollWheelYOffset;
 
 			glm::vec2 m_ScreenPos;
 

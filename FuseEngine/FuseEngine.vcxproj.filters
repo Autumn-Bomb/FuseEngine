@@ -160,8 +160,6 @@
     <ClInclude Include="Engine\Editor\Panels\Inspector\Inspector.h" />
     <ClInclude Include="Engine\Framework\Graphics\Framebuffer\Framebuffer.h" />
     <ClInclude Include="Engine\Framework\Input\Input.h" />
-    <ClInclude Include="Engine\Framework\ECS\Components\Components.h" />
-    <ClInclude Include="Engine\Framework\ECS\Entity\Entity.h" />
     <ClInclude Include="Engine\Editor\Panels\Console\Console.h" />
     <ClInclude Include="Engine\Framework\Scene\Scene.h" />
     <ClInclude Include="Engine\Framework\Graphics\Rendering\BatchRenderer\BatchRenderer.h" />
@@ -171,7 +169,8 @@
     <ClInclude Include="Engine\Framework\SceneManager\SceneManager.h" />
     <ClInclude Include="Includes\Include\JSON\json.hpp" />
     <ClInclude Include="Engine\Framework\DeltaTime\DeltaTime.h" />
-    <ClInclude Include="Engine\Framework\Scene\Scene1.h" />
+    <ClInclude Include="Engine\Framework\ECS\EntitySystem\EntitySystem.h" />
+    <ClInclude Include="Engine\Framework\ECS\Systems\RenderingSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ImGui">

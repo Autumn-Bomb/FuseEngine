@@ -25,7 +25,7 @@ Fuse::EditorCameraController::EditorCameraController(float left, float right, fl
 }
 Fuse::EditorCameraController::~EditorCameraController() {}
 
-void Fuse::EditorCameraController::HandleInput(float deltaTime)
+void Fuse::EditorCameraController::HandleInput(double deltaTime)
 {
 	if (m_Input->GetKeyDown('W'))
 	{

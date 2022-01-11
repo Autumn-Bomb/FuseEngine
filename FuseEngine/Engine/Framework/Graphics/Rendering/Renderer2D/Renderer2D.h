@@ -63,16 +63,9 @@ namespace Fuse
 				inline static uint32_t m_QuadTexture;
 			};
 
-			struct m_SceneData
-			{
-				glm::mat4 projectionViewMatrix;
-			};
-
 			inline static glm::mat4 m_Transform;
 
 		private:
-			inline static m_SceneData* m_SData;
-
 			inline static m_QuadBase m_Quad;
 			inline static Fuse::Framebuffer m_FrameBuffer;
 			inline static Fuse::EditorCamera m_EditorCamera;

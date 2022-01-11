@@ -9,10 +9,6 @@ void Fuse::Renderer2D::InitialiseRenderer(Fuse::EditorCamera& camera)
 	m_EditorCamera = camera;
 
 	m_FrameBuffer.InitialiseFramebuffer(1469, 738);
-
-	m_SData = new m_SceneData();
-	m_SData->projectionViewMatrix = camera.GetProjectionViewMatrix();
-
 	InitialiseBuffers();
 }
 

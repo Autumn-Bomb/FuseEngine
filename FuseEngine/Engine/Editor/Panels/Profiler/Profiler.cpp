@@ -1,4 +1,5 @@
 #include "Profiler.h"
+#include "../../../Framework/ECS/EntitySystem/EntitySystem.h"
 
 Fuse::Profiler::Profiler()
 {
@@ -35,7 +36,7 @@ void Fuse::Profiler::OnImGuiRender()
 	}
 	if (ImGui::CollapsingHeader("RENDERING STATS"), ImGuiTreeNodeFlags_DefaultOpen)
 	{
-		ImGui::Text("Entities: %i", 0);
+		ImGui::Text("Entities: %i", Fuse::EntitySystem::GetEntities());
 		ImGui::Text("Draw Calls: %d", Fuse::Renderer2D::GetDrawcalls());
 		ImGui::Text("Vertices: %i", 0);
 		ImGui::Text("Indices: %i", 0);

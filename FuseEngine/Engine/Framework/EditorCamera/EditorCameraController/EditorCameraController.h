@@ -12,7 +12,7 @@ namespace Fuse
 			~EditorCameraController();
 
 		public:
-			void HandleInput(float deltaTime);
+			void HandleInput(double deltaTime);
 
 		public:
 			Fuse::EditorCamera* GetCamera() { return m_EditorCamera; }

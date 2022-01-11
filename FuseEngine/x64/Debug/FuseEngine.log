@@ -1,8 +1,14 @@
-﻿  Window.cpp
-E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Framework\Scene\Scene.h(32,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  Editor.cpp
+  Profiler.cpp
+  SceneHeriarchy.cpp
+  SceneViewport.cpp
+E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Editor\Panels\SceneViewport\SceneViewport.cpp(13,61): warning C4312: 'type cast': conversion from 'uint32_t' to 'ImTextureID' of greater size
+  Window.cpp
+  PanelManager.cpp
+  SceneManager.cpp
   Main.cpp
-E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Framework\Scene\Scene.h(32,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Main\Main.cpp(6,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
+E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Framework\ECS\EntitySystem\EntitySystem.h(24): warning C4172: returning address of local variable or temporary: entity
+E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\FuseEngine\Engine\Framework\ECS\EntitySystem\EntitySystem.h(69): warning C4715: 'Fuse::EntitySystem::GetComponent<Fuse::Components::Entity>': not all control paths return a value
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   FuseEngine.vcxproj -> E:\Autumn Bomb LTD\Current Projects\Windows\Engines\FuseEngine\x64\Debug\FuseEngine.exe

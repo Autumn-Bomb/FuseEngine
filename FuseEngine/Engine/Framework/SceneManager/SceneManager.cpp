@@ -49,6 +49,8 @@ void Fuse::SceneManager::OnSceneRemoved(Fuse::Scene* scene)
 
 	if (position != m_LoadedScenes.end())
 	{
+		m_CurrentScene->OnSceneUnloaded();
+
 		m_LoadedScenes.erase(position);
 		m_CurrentScene = nullptr;
 	}
